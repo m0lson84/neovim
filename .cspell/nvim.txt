@@ -1,0 +1,13 @@
+autocmd
+autocmds
+bnext
+bprevious
+buflisted
+bufname
+bufnr
+deepcopy
+filereadable
+findbuf
+keymap
+nvim
+strcharpart
