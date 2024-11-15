@@ -12,21 +12,6 @@ local M = setmetatable({}, {
 ---@type table<string,LazyFloat>
 local terminals = {}
 
--- Open lazygit in a floating terminal
----@param opts? TerminalOpts
-function M.lazygit(opts)
-  opts = vim.tbl_deep_extend('force', {}, {
-    border = 'none',
-    esc_esc = false,
-    ctrl_hjkl = false,
-  }, opts or {})
-
-  local cmd = { 'lazygit' }
-  vim.list_extend(cmd, opts.args or {})
-
-  return M.open(cmd, opts)
-end
-
 -- Opens a floating terminal (interactive by default)
 ---@param cmd? string[]|string
 ---@param opts? TerminalOpts

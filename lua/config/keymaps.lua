@@ -37,7 +37,7 @@ vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = 'prev buffer' })
 vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = 'next buffer' })
 vim.keymap.set('n', '<leader>bb', '<cmd>e #<cr>', { desc = '[b]uffer switch' })
 vim.keymap.set('n', '<leader>`', '<cmd>e #<cr>', { desc = 'switch to other buffer' })
-vim.keymap.set('n', '<leader>bd', utils.ui.bufremove, { desc = '[d]elete buffer' })
+vim.keymap.set('n', '<leader>bd', function() Snacks.bufdelete() end, { desc = '[d]elete buffer' })
 vim.keymap.set('n', '<leader>bD', '<cmd>:bd<cr>', { desc = '[D]elete buffer and window' })
 
 -- clear search with <esc>
@@ -126,7 +126,7 @@ vim.keymap.set('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'prev warning
 
 --- open lazygit in a terminal window.
 ---@param cwd ?string the current working directory.
-local lazygit = function(cwd) require('snacks').lazygit({ cwd = cwd }) end
+local lazygit = function(cwd) Snacks.lazygit({ cwd = cwd }) end
 
 vim.keymap.set('n', '<leader>gg', function() lazygit(utils.root()) end, { desc = 'lazy[g]it (root)' })
 vim.keymap.set('n', '<leader>gG', function() lazygit() end, { desc = 'lazy[G]it (cwd)' })

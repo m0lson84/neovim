@@ -1,8 +1,8 @@
 # neovim
 
-<a href="https://dotfyle.com/m0lson84/neovim"><img src="https://dotfyle.com/m0lson84/neovim/badges/plugins?style=flat" /></a>
-<a href="https://dotfyle.com/m0lson84/neovim"><img src="https://dotfyle.com/m0lson84/neovim/badges/leaderkey?style=flat" /></a>
-<a href="https://dotfyle.com/m0lson84/neovim"><img src="https://dotfyle.com/m0lson84/neovim/badges/plugin-manager?style=flat" /></a>
+<a href="https://dotfyle.com/m0lson84/neovim"><img src="https://dotfyle.com/m0lson84/neovim/badges/plugins?style=for-the-badge" /></a>
+<a href="https://dotfyle.com/m0lson84/neovim"><img src="https://dotfyle.com/m0lson84/neovim/badges/leaderkey?style=for-the-badge" /></a>
+<a href="https://dotfyle.com/m0lson84/neovim"><img src="https://dotfyle.com/m0lson84/neovim/badges/plugin-manager?style=for-the-badge" /></a>
 
 ## Requirements
 
@@ -42,6 +42,7 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 
 ### comment
 
+- [folke/ts-comments.nvim](https://dotfyle.com/plugins/folke/ts-comments.nvim)
 - [danymat/neogen](https://dotfyle.com/plugins/danymat/neogen)
 - [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
 
@@ -68,12 +69,14 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 
 - [echasnovski/mini.ai](https://dotfyle.com/plugins/echasnovski/mini.ai)
 - [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
+- [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
 - [echasnovski/mini.pairs](https://dotfyle.com/plugins/echasnovski/mini.pairs)
 - [gbprod/yanky.nvim](https://dotfyle.com/plugins/gbprod/yanky.nvim)
 
 ### file-explorer
 
 - [nvim-neo-tree/neo-tree.nvim](https://dotfyle.com/plugins/nvim-neo-tree/neo-tree.nvim)
+- [stevearc/oil.nvim](https://dotfyle.com/plugins/stevearc/oil.nvim)
 
 ### formatting
 
@@ -92,6 +95,7 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 ### icon
 
 - [nvim-tree/nvim-web-devicons](https://dotfyle.com/plugins/nvim-tree/nvim-web-devicons)
+- [echasnovski/mini.icons](https://dotfyle.com/plugins/echasnovski/mini.icons)
 
 ### indent
 

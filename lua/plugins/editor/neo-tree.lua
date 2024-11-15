@@ -65,7 +65,7 @@ return {
       { '<leader>fE', explore(utils.root()), desc = '[e]xplorer root' },
     },
     config = function(_, opts)
-      local function on_move(data) utils.lsp.on_rename(data.source, data.destination) end
+      local function on_move(data) Snacks.rename.on_rename_file(data.source, data.destination) end
       local events = require('neo-tree.events')
       opts.event_handlers = opts.event_handlers or {}
       vim.list_extend(opts.event_handlers, {

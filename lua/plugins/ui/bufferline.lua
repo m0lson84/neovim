@@ -24,8 +24,8 @@ return {
       local bufferline = require('bufferline')
       return {
         options = {
-          close_command = function(n) utils.ui.bufremove(n) end,
-          right_mouse_command = function(n) utils.ui.bufremove(n) end,
+          close_command = function(n) Snacks.bufdelete(n) end,
+          right_mouse_command = function(n) Snacks.bufdelete(n) end,
           indicator = { style = 'none' },
           buffer_close_icon = '󰖭',
           diagnostics = 'nvim_lsp',

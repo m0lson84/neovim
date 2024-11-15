@@ -10,4 +10,5 @@ filereadable
 findbuf
 keymap
 nvim
+statuscolumn
 strcharpart
