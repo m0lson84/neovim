@@ -16,22 +16,6 @@ vim.g.maplocalleader = '\\'
 -- mini.animate will also be disabled.
 vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
 
--- System clipboard provider
-if vim.env.WSLENV then
-  vim.g.clipboard = {
-    name = 'WSL Clipboard',
-    copy = {
-      ['+'] = 'win32yank.exe -i --crlf',
-      ['*'] = 'win32yank.exe -i --crlf',
-    },
-    paste = {
-      ['+'] = 'win32yank.exe -o --lf',
-      ['*'] = 'win32yank.exe -o --lf',
-    },
-    cache_enabled = false,
-  }
-end
-
 -- Providers
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
