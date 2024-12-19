@@ -5,10 +5,12 @@ bprevious
 buflisted
 bufname
 bufnr
+bufremove
 deepcopy
 filereadable
 findbuf
 keymap
+lspconfig
 nvim
 statuscolumn
 strcharpart

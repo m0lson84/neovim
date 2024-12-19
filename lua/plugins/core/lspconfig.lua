@@ -9,7 +9,6 @@ return {
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim', config = function() end },
       { 'j-hui/fidget.nvim', opts = {} },
-      { 'hrsh7th/cmp-nvim-lsp' },
     },
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     opts = {
@@ -125,30 +124,30 @@ return {
       vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local function setup(server)
-        local server_opts = vim.tbl_deep_extend('force', {
+        local config = vim.tbl_deep_extend('force', {
           capabilities = vim.deepcopy(capabilities),
         }, opts.servers[server] or {})
-        if server_opts.enabled == false then return end
+        if config.enabled == false then return end
 
+        config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
         if opts.setup[server] then
-          if opts.setup[server](server, server_opts) then return end
+          if opts.setup[server](server, config) then return end
         elseif opts.setup['*'] then
-          if opts.setup['*'](server, server_opts) then return end
+          if opts.setup['*'](server, config) then return end
         end
-        require('lspconfig')[server].setup(server_opts)
+        require('lspconfig')[server].setup(config)
       end
 
       local mason = require('mason-lspconfig')
       local servers = vim.tbl_keys(require('mason-lspconfig.mappings.server').lspconfig_to_package)
 
       local ensure_installed = {} ---@type string[]
-      for server, server_opts in pairs(opts.servers) do
-        if server_opts then
-          server_opts = server_opts == true and {} or server_opts
-          if server_opts.enabled ~= false then
+      for server, config in pairs(opts.servers) do
+        if config then
+          config = config == true and {} or config
+          if config.enabled ~= false then
             if not vim.tbl_contains(servers, server) then
               setup(server)
             else

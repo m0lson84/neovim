@@ -62,4 +62,21 @@ return {
       },
     },
   },
+
+  -- Additional completions
+  {
+    'saghen/blink.cmp',
+    opts = {
+      sources = {
+        default = { 'lazydev' },
+        providers = {
+          lazydev = {
+            name = 'LazyDev',
+            module = 'lazydev.integrations.blink',
+            score_offset = 100,
+          },
+        },
+      },
+    },
+  },
 }

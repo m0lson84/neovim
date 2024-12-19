@@ -25,6 +25,8 @@ return {
         highlights.DiagnosticVirtualTextInfo = { fg = colors.info, bg = colors.none }
         highlights.DiagnosticVirtualTextHint = { fg = colors.hint, bg = colors.none }
         highlights.LspInlayHint = { fg = colors.dark3, bg = colors.none }
+        highlights.BlinkCmpDocBorder = { fg = colors.border_highlight, bg = colors.bg_float }
+        highlights.BlinkCmpMenuBorder = { fg = colors.border_highlight, bg = colors.bg_float }
       end,
     },
   },

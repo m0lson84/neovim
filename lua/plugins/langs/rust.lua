@@ -2,6 +2,17 @@
 Rust language support
 --]]
 
+--- Configure keymap for rust code actions
+---@param bufnr boolean|integer The current buffer
+local code_actions = function(bufnr)
+  vim.keymap.set(
+    'n',
+    '<leader>cA',
+    function() vim.cmd.RustLsp('codeAction') end,
+    { desc = 'rust [A]ctions', buffer = bufnr }
+  )
+end
+
 --- Configure keymap for rust debuggables
 ---@param bufnr boolean|integer The current buffer
 local debuggables = function(bufnr)
@@ -13,6 +24,7 @@ local debuggables = function(bufnr)
   )
 end
 
+--- Hover action for cargo.toml files
 local hover_action = function()
   if vim.fn.expand('%:t') == 'Cargo.toml' and require('crates').popup_available() then
     require('crates').show_popup()
@@ -36,7 +48,10 @@ return {
     lazy = false,
     opts = {
       server = {
-        on_attach = function(_, bufnr) debuggables(bufnr) end,
+        on_attach = function(_, bufnr)
+          code_actions(bufnr)
+          debuggables(bufnr)
+        end,
         load_vscode_settings = true,
         default_settings = {
           ['rust-analyzer'] = {
@@ -124,18 +139,22 @@ return {
     },
   },
 
-  -- Additional auto completion
+  -- Dependency management
   {
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      {
-        'Saecki/crates.nvim',
-        event = { 'BufRead Cargo.toml' },
-        opts = {
-          completion = { cmp = { enabled = true } },
+    'Saecki/crates.nvim',
+    event = { 'BufRead Cargo.toml' },
+    opts = {
+      completion = {
+        crates = {
+          enabled = true,
         },
       },
+      lsp = {
+        enabled = true,
+        actions = true,
+        completion = true,
+        hover = true,
+      },
     },
-    opts = function(_, opts) table.insert(opts.sources or {}, { name = 'crates' }) end,
   },
 }

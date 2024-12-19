@@ -3,5 +3,5 @@
   "language": "en",
   "dictionaries": ["nvim"],
   "dictionaryDefinitions": [{ "name": "nvim", "path": "./.cspell/nvim.txt" }],
-  "words": ["bufremove", "lazygit", "lspconfig", "markdownlint", "sqlfluff"]
+  "words": ["lazygit", "markdownlint", "sqlfluff"]
 }
