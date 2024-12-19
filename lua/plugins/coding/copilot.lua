@@ -17,13 +17,22 @@ return {
     },
   },
   {
-    'zbirenbaum/copilot-cmp',
-    dependencies = 'copilot.lua',
-    opts = {},
-    config = function(_, opts)
-      local copilot_cmp = require('copilot_cmp')
-      copilot_cmp.setup(opts)
-      utils.lsp.on_attach(function(_) copilot_cmp._on_insert_enter({}) end, 'copilot')
-    end,
+    'saghen/blink.cmp',
+    dependencies = {
+      { 'giuxtaposition/blink-cmp-copilot' },
+    },
+    opts = {
+      sources = {
+        default = { 'copilot' },
+        providers = {
+          copilot = {
+            name = 'copilot',
+            module = 'blink-cmp-copilot',
+            score_offset = 100,
+            async = true,
+          },
+        },
+      },
+    },
   },
 }
