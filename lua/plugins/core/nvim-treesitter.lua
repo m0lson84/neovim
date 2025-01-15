@@ -16,7 +16,10 @@ return {
     opts_extend = { 'ensure_installed' },
     opts = {
       auto_install = true,
-      indent = { enable = true },
+      indent = {
+        enable = true,
+        disable = { 'ruby' },
+      },
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = true,
