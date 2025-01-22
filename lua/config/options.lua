@@ -186,11 +186,11 @@ vim.filetype.add({
   filename = {
     ['.env'] = 'dotenv',
     ['devcontainer.json'] = 'jsonc',
-    ['docker-compose.yml'] = 'yaml.docker-compose',
-    ['docker-compose.yaml'] = 'yaml.docker-compose',
   },
   pattern = {
     ['%.env%.[%w_.-]+'] = 'dotenv',
+    ['compose.*%.ya?ml'] = 'yaml.docker-compose',
+    ['docker-compose.*%.ya?ml'] = 'yaml.docker-compose',
   },
 })
 
