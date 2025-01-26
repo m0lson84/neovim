@@ -88,6 +88,20 @@ return {
       },
     },
   },
+  {
+    'saghen/blink.cmp',
+    opts = {
+      sources = {
+        providers = {
+          markdown = {
+            name = 'RenderMarkdown',
+            module = 'render-markdown.integ.blink',
+            fallbacks = { 'lsp' },
+          },
+        },
+      },
+    },
+  },
 
   {
     'folke/which-key.nvim',
