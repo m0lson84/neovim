@@ -1,3 +1,7 @@
+--[[
+Language server protocol (LSP) utilities.
+--]]
+
 ---@class util.lsp
 local M = {}
 

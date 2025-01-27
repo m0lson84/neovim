@@ -1,3 +1,7 @@
+--[[
+Floating terminal utilities.
+--]]
+
 ---@class util.terminal
 ---@overload fun(cmd: string|string[], opts: TerminalOpts): LazyFloat
 local M = setmetatable({}, {

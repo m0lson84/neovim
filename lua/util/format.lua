@@ -1,3 +1,7 @@
+--[[
+Code formatter utilities.
+--]]
+
 ---@class util.format
 local M = {}
 

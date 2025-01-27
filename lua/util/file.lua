@@ -1,3 +1,7 @@
+--[[
+File utilities.
+--]]
+
 ---@class util.file
 local M = {}
 

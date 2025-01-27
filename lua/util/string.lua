@@ -1,3 +1,7 @@
+--[[
+String utilities.
+--]]
+
 ---@class util.string
 local M = {}
 

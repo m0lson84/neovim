@@ -148,7 +148,7 @@ return {
         if config then
           config = config == true and {} or config
           if config.enabled ~= false then
-            if not vim.tbl_contains(servers, server) then
+            if config.mason == false or not vim.tbl_contains(servers, server) then
               setup(server)
             else
               ensure_installed[#ensure_installed + 1] = server
@@ -158,6 +158,7 @@ return {
       end
 
       mason.setup({
+        automatic_installation = true,
         ensure_installed = vim.tbl_deep_extend(
           'force',
           ensure_installed,

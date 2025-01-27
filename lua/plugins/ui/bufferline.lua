@@ -35,10 +35,6 @@ return {
               .. (diag.warning and icons.Error .. diag.warning or '')
             return vim.trim(ret)
           end,
-          offsets = {
-            { filetype = 'neo-tree', separator = true },
-            { filetype = 'neotest-summary', separator = true },
-          },
           get_element_icon = function(opts) return config.icons.ft[opts.filetype] end,
           always_show_bufferline = false,
           hover = { enabled = true, delay = 100, reveal = { 'close' } },

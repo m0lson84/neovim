@@ -1,3 +1,7 @@
+--[[
+Auto-commands utilities.
+--]]
+
 ---@class util.autocmd
 M = {}
 

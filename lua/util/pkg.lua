@@ -1,3 +1,7 @@
+--[[
+Mason package utilities.
+--]]
+
 ---@class util.pkg
 local M = {}
 

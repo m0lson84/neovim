@@ -1,3 +1,7 @@
+--[[
+Root workspace utilities.
+--]]
+
 ---@class util.file
 local M = setmetatable({}, {
   __call = function(m) return m.get() end,

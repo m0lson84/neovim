@@ -1,3 +1,7 @@
+--[[
+User interface (UI) utilities.
+--]]
+
 ---@class util.ui
 local M = {}
 

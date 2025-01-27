@@ -1,3 +1,7 @@
+--[[
+Directory utilities.
+--]]
+
 ---@class util.dir
 local M = {}
 

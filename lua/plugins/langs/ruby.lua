@@ -15,8 +15,8 @@ return {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
-        ruby_lsp = {},
-        rubocop = {},
+        ruby_lsp = { mason = false },
+        rubocop = { mason = false },
       },
     },
   },

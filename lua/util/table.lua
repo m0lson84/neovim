@@ -1,3 +1,7 @@
+--[[
+Lua table utilities.
+--]]
+
 ---@class util.table
 local M = {}
 

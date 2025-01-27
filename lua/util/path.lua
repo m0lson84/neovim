@@ -1,3 +1,7 @@
+--[[
+File path utilities.
+--]]
+
 ---@class util.path
 local M = {}
 
