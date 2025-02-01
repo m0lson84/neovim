@@ -15,7 +15,6 @@ return {
       vim.api.nvim_create_autocmd('FileType', {
         pattern = {
           'dashboard',
-          'fzf',
           'help',
           'lazy',
           'lazyterm',
