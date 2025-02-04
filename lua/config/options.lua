@@ -135,6 +135,8 @@ opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = 'screen'
 opt.splitright = true -- Put new windows right of current
 
+opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
+
 -- Number of spaces tabs count for
 opt.tabstop = 2
 

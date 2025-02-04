@@ -8,15 +8,7 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
-      styles = {
-        notification = {
-          wo = { wrap = true },
-        },
-      },
       bigfile = { enabled = true },
-      notifier = { enabled = true },
-      statuscolumn = { enabled = true },
-      words = { enabled = true },
     },
   },
 }
