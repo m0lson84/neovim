@@ -22,8 +22,6 @@ return {
               '--option',
               'align_entries=true',
               '--option',
-              'reorder_keys=true',
-              '--option',
               'reorder_arrays=true',
               '-',
             }
