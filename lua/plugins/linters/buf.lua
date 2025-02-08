@@ -22,7 +22,7 @@ return {
     'stevearc/conform.nvim',
     opts = {
       formatters = {
-        ['buf'] = {},
+        buf = {},
       },
     },
   },

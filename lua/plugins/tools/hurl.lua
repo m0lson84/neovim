@@ -26,4 +26,16 @@ return {
       ensure_installed = { 'hurl' },
     },
   },
+  {
+    'stevearc/conform.nvim',
+    dependencies = { 'williamboman/mason.nvim' },
+    opts = {
+      formatters = {
+        hurlfmt = {},
+      },
+      formatters_by_ft = {
+        hurl = { 'hurlfmt' },
+      },
+    },
+  },
 }
