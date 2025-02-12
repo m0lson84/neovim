@@ -35,7 +35,6 @@ require('lazy').setup({
     { import = 'plugins.linters' },
     { import = 'plugins.tools' },
     { import = 'plugins.ui' },
-    { import = 'plugins.utils' },
   },
   rocks = { enabled = false },
   install = { colorscheme = { 'tokyonight' } },

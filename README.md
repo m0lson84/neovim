@@ -42,6 +42,7 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 ### core
 
 - [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
+- [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
 - [folke/tokyonight.nvim](https://dotfyle.com/plugins/folke/tokyonight.nvim)
 - [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
 - [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
@@ -70,12 +71,10 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 - [folke/todo-comments.nvim](https://dotfyle.com/plugins/folke/todo-comments.nvim)
 - [folke/trouble.nvim](https://dotfyle.com/plugins/folke/trouble.nvim)
 - [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
-- [ibhagwan/fzf-lua](https://dotfyle.com/plugins/ibhagwan/fzf-lua)
 - [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
 - [lukas-reineke/virt-column.nvim](https://dotfyle.com/plugins/lukas-reineke/virt-column.nvim)
 - [magicduck/grug-far.nvim](https://dotfyle.com/plugins/MagicDuck/grug-far.nvim)
 - [nvim-neo-tree/neo-tree.nvim](https://dotfyle.com/plugins/nvim-neo-tree/neo-tree.nvim)
-- [stevearc/oil.nvim](https://dotfyle.com/plugins/stevearc/oil.nvim)
 
 ### tools
 
@@ -102,7 +101,3 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 - [nvim-treesitter/nvim-treesitter-context](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-context)
 - [rcarriga/nvim-notify](https://dotfyle.com/plugins/rcarriga/nvim-notify)
 - [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
-
-### utils
-
-- [folke/snacks.nvim](https://dotfyle.com/plugins/folke/snacks.nvim)
