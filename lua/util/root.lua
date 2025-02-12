@@ -147,6 +147,11 @@ function M.resolve(spec)
   return function(buf) return M.detectors.pattern(buf, spec) end
 end
 
+--- Get the path to the Python virtual environment directory (if exists).
+---@param path string|nil Path to the directory to start searching in. Defaults to the current working directory.
+---@return string|nil
+function M.venv(path) return require('util.dir').find('.venv', path or vim.fn.getcwd()) end
+
 --- Get the path to the Neovim (Vim) configuration directory (if exists).
 ---@param path string|nil Path to the directory to start searching in. Defaults to the current working directory.
 ---@return string|nil
