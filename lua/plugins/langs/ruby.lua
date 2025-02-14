@@ -24,12 +24,6 @@ return {
   -- Configure linters
   {
     'mfussenegger/nvim-lint',
-    dependencies = {
-      {
-        'williamboman/mason.nvim',
-        opts = { ensure_installed = { 'erb-lint' } },
-      },
-    },
     opts = {
       linters_by_ft = {
         eruby = { 'erb_lint' },
@@ -40,12 +34,6 @@ return {
   -- Configure formatters
   {
     'stevearc/conform.nvim',
-    dependencies = {
-      {
-        'williamboman/mason.nvim',
-        opts = { ensure_installed = { 'erb-formatter' } },
-      },
-    },
     opts = {
       formatters_by_ft = {
         ruby = { 'rubocop' },
