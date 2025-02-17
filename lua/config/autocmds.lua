@@ -127,15 +127,22 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
   end,
 })
 
+-- Configure language ruler
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  group = utils.autocmd.group('language_ruler'),
+  callback = function() vim.wo.colorcolumn = vim.bo.textwidth and '+1' or '' end,
+})
+
+-- Activate quarto in additional filetypes
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  group = utils.autocmd.group('activate_quarto'),
+  pattern = { 'markdown' },
+  callback = function() require('quarto').activate() end,
+})
+
 -- Quit Zellij when quitting Neovim
 vim.api.nvim_create_autocmd({ 'VimLeave' }, {
   group = utils.autocmd.group('quit_zellij'),
   pattern = '*',
   callback = function() os.execute('zellij k "$ZELLIJ_SESSION_NAME"') end,
-})
-
--- Configure language ruler
-vim.api.nvim_create_autocmd({ 'FileType' }, {
-  group = utils.autocmd.group('language_ruler'),
-  callback = function() vim.wo.colorcolumn = vim.bo.textwidth and '+1' or '' end,
 })
