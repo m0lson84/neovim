@@ -51,6 +51,12 @@ return {
       signature = {
         enabled = true,
       },
+      cmdline = {
+        enabled = false,
+      },
+      term = {
+        enabled = false,
+      },
       keymap = {
         preset = 'default',
         ['<Up>'] = { 'select_prev', 'fallback' },
