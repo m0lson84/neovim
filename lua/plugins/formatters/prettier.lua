@@ -15,7 +15,7 @@ return {
     opts = function(_, opts)
       opts.formatters_by_ft = utils.table.extend_keys(
         opts.formatters_by_ft,
-        { 'css', 'graphql', 'handlebars', 'html', 'less', 'scss', 'vue' },
+        { 'graphql', 'handlebars', 'html', 'less', 'vue' },
         { 'prettierd' }
       )
     end,
