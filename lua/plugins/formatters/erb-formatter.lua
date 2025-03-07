@@ -4,12 +4,6 @@ erb-formatter (https://github.com/nebulab/erb-formatter)
 
 return {
   {
-    'williamboman/mason.nvim',
-    opts = {
-      ensure_installed = { 'erb-formatter' },
-    },
-  },
-  {
     'stevearc/conform.nvim',
     dependencies = { 'williamboman/mason.nvim' },
     opts = {
