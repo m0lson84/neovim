@@ -7,7 +7,7 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'go', 'gomod', 'gosum', 'gotmpl', 'gowork', 'templ' } },
+    opts = { ensure_installed = { 'go', 'gomod', 'gosum', 'gotmpl', 'gowork' } },
   },
 
   -- Configure language server
@@ -48,7 +48,7 @@ return {
               usePlaceholders = true,
               completeUnimported = true,
               staticcheck = true,
-              directoryFilters = { '-.git', '-.vscode', '-.idea', '-.vscode-test', '-node_modules' },
+              directoryFilters = { '-.git', '-.idea', '-node_modules', '-.vscode', '-.vscode-test' },
               templateExtensions = { 'gotmpl', 'tmpl' },
               semanticTokens = true,
             },
