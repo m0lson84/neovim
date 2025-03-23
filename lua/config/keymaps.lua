@@ -133,8 +133,6 @@ vim.keymap.set('n', '<leader>gG', function() lazygit() end, { desc = 'lazy[G]it 
 
 -- [[ terminal ]]
 
-local lazyterm = function() utils.terminal(nil, { cwd = utils.root() }) end
-
 --- Switch to terminal tab if running in Zellij else open lazyterm.
 local terminal = function()
   if vim.env.ZELLIJ ~= nil then
@@ -145,8 +143,13 @@ local terminal = function()
   utils.terminal(nil, { cwd = utils.root() })
 end
 
-vim.keymap.set('n', '<leader>ft', lazyterm, { desc = '[t]erminal (root)' })
-vim.keymap.set('n', '<leader>fT', function() utils.terminal() end, { desc = '[T]erminal (cwd)' })
+vim.keymap.set(
+  'n',
+  '<leader>ft',
+  function() Snacks.terminal(nil, { cwd = utils.root() }) end,
+  { desc = '[t]erminal (root)' }
+)
+vim.keymap.set('n', '<leader>fT', function() Snacks.terminal() end, { desc = '[T]erminal (cwd)' })
 vim.keymap.set('n', '<c-/>', terminal, { desc = 'terminal (root)' })
 vim.keymap.set('n', '<c-_>', terminal, { desc = 'which_key_ignore' })
 

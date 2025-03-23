@@ -69,7 +69,20 @@ return {
               and vim.w[win].trouble.relative == 'editor'
               and not vim.w[win].trouble_preview
           end,
+        })
+      end
+
+      for _, pos in ipairs({ 'bottom', 'left', 'right' }) do
+        table.insert(opts[pos], {
+          ft = 'snacks_terminal',
+          title = '%{b:snacks_terminal.id}: %{b:term_title}',
           size = size[pos],
+          filter = function(_, win)
+            return vim.w[win].snacks_win
+              and vim.w[win].snacks_win.position == pos
+              and vim.w[win].snacks_win.relative == 'editor'
+              and not vim.w[win].trouble_preview
+          end,
         })
       end
       return opts
