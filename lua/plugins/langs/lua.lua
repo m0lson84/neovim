@@ -27,11 +27,11 @@ return {
     },
   },
   {
-    'Bilal2453/luvit-meta',
-    lazy = true,
-  },
-  {
     'folke/lazydev.nvim',
+    dependencies = {
+      { 'Bilal2453/luvit-meta', lazy = true },
+      { 'gonstoll/wezterm-types', lazy = true },
+    },
     ft = 'lua',
     cmd = 'LazyDev',
     opts = {
@@ -39,6 +39,7 @@ return {
         { path = 'luvit-meta/library', words = { 'vim%.uv' } },
         { path = 'lazy.nvim', words = { 'LazyVim' } },
         { path = 'snacks.nvim', words = { 'Snacks' } },
+        { path = 'wezterm-types', words = { 'wezterm' } },
       },
     },
   },
