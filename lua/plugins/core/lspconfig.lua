@@ -80,7 +80,7 @@ return {
           if not client then return end
 
           -- document highlights
-          if client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+          if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_group = utils.autocmd.group('lsp_highlight')
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
@@ -104,7 +104,7 @@ return {
           end
 
           -- inlay hints
-          if opts.inlay_hints.enabled and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+          if opts.inlay_hints.enabled and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
           end
 
