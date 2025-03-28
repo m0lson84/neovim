@@ -14,14 +14,23 @@ return {
     'folke/snacks.nvim',
     priority = 1000,
     lazy = false,
-    opts = {
-      picker = {
-        sources = {
-          files = { hidden = true },
-          grep = { hidden = true },
-        },
-      },
-    },
+    ---@param opts snacks.Config
+    ---@return snacks.Config
+    opts = function(_, opts)
+      opts.explorer = {}
+      opts.picker = { sources = {} }
+      for _, source in ipairs({ 'explorer', 'files', 'grep' }) do
+        opts.picker.sources[source] = {
+          hidden = true,
+          exclude = {
+            '__pycache__',
+            '.DS_Store',
+            'thumbs.db',
+          },
+        }
+      end
+      return opts
+    end,
     keys = {
       { '<leader><leader>', pick('files'), desc = '[ ] search files' },
       { '<leader>e', '<leader>fe', desc = '[e]xplorer cwd', remap = true },

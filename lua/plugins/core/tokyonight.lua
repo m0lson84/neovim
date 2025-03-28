@@ -27,6 +27,8 @@ return {
         highlights.LspInlayHint = { fg = colors.dark3, bg = colors.none }
         highlights.BlinkCmpDocBorder = { fg = colors.border_highlight, bg = colors.bg_float }
         highlights.BlinkCmpMenuBorder = { fg = colors.border_highlight, bg = colors.bg_float }
+        highlights.SnacksPickerDirectory = { fg = colors.fg }
+        highlights.SnacksPickerPathHidden = { fg = colors.fg }
       end,
     },
   },
