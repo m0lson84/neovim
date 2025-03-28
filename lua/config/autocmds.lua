@@ -83,14 +83,14 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   group = utils.autocmd.group('wrap_spell'),
   pattern = { 'gitcommit', 'markdown', 'plaintext', 'text' },
-  callback = function() vim.opt_local.wrap = true end,
+  callback = function() vim.wo.wrap = true end,
 })
 
 -- Fix conceallevel for json files
 vim.api.nvim_create_autocmd({ 'FileType' }, {
   group = utils.autocmd.group('json_conceal'),
   pattern = { 'json', 'jsonc', 'json5' },
-  callback = function() vim.opt_local.conceallevel = 0 end,
+  callback = function() vim.wo.conceallevel = 0 end,
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist

@@ -13,4 +13,4 @@ if not vim.uv.fs_stat(lazypath) then
 end
 
 -- Add lazy.nvim to runtime path
-vim.opt.rtp:prepend(lazypath)
+vim.o.rtp = lazypath .. ',' .. vim.o.rtp

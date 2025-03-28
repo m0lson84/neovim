@@ -2,6 +2,29 @@
 Core Neovim Options
 --]]
 
+--[[ Helper Functions ]]
+
+--- Append a value to a comma-separated list, if it's not already present.
+---@param current string The current list value
+---@param value string The value to append
+---@return string result  The new list value
+local function append(current, value)
+  local pattern = '(^|,)' .. vim.pesc(value) .. '(,|$)'
+  if current:match(pattern) then return current end
+  return current == '' and value or (current .. ',' .. value)
+end
+
+--- Convert a dictionary to a string of vim options.
+---@param dict table The dictionary to convert.
+---@return string result The vim options string.
+local function dict_to_vimopt(dict)
+  local parts = {}
+  for k, v in pairs(dict) do
+    table.insert(parts, k .. ':' .. v)
+  end
+  return table.concat(parts, ',')
+end
+
 --[[ Global variables ]]
 
 -- Set <space> as the leader key
@@ -27,152 +50,150 @@ vim.g.window_border = 'rounded'
 
 --[[ Local options ]]
 
-local opt = vim.opt
-
 -- Use system clipboard
-vim.schedule(function() vim.opt.clipboard = 'unnamedplus' end)
+vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
-opt.number = true
-opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- Don't show the mode, since it's already in the status line
-opt.showmode = false
+vim.o.showmode = false
 
 -- Enable break indent
-opt.breakindent = true
+vim.o.breakindent = true
 
 -- Save undo history
-opt.undofile = true
+vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-opt.ignorecase = true
-opt.smartcase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Decrease update time
-opt.updatetime = 250
+vim.o.updatetime = 250
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-opt.timeoutlen = 300
+vim.o.timeoutlen = 300
 
 -- Configure how new splits should be opened
-opt.splitright = true
-opt.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-opt.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.o.list = true
+vim.o.listchars = dict_to_vimopt({ tab = '» ', trail = '·', nbsp = '␣' })
 
 -- Preview substitutions live, as you type!
-opt.inccommand = 'split'
+vim.o.inccommand = 'split'
 
 -- Show which line your cursor is on
-opt.cursorline = true
+vim.o.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-opt.scrolloff = 10
+vim.o.scrolloff = 10
 
 -- Enable auto write
-opt.autowrite = true
+vim.o.autowrite = true
 
-opt.completeopt = 'menu,menuone,noselect'
+vim.o.completeopt = 'menu,menuone,noselect'
 
 -- Hide * markup for bold and italic, but not markers with substitutions
-opt.conceallevel = 2
+vim.o.conceallevel = 2
 
 -- Confirm to save changes before exiting modified buffer
-opt.confirm = true
+vim.o.confirm = true
 
 -- Enable highlighting of the current line
-opt.cursorline = true
+vim.o.cursorline = true
 
 -- Use spaces instead of tabs
-opt.expandtab = true
+vim.o.expandtab = true
 
-opt.fillchars = {
+vim.o.fillchars = dict_to_vimopt({
   foldopen = '',
   foldclose = '',
   fold = ' ',
   foldsep = ' ',
   diff = '╱',
   eob = ' ',
-}
+})
 
-opt.grepformat = '%f:%l:%c:%m'
-opt.grepprg = 'rg --vimgrep'
-opt.ignorecase = true -- Ignore case
-opt.inccommand = 'nosplit' -- preview incremental substitute
-opt.jumpoptions = 'view'
-opt.laststatus = 3 -- global statusline
-opt.linebreak = true -- Wrap lines at convenient points
-opt.list = true -- Show some invisible characters (tabs...
-opt.mouse = 'a' -- Enable mouse mode
-opt.number = true -- Print line number
-opt.pumblend = 10 -- Popup blend
-opt.pumheight = 10 -- Maximum number of entries in a popup
-opt.relativenumber = true -- Relative line numbers
-opt.scrolloff = 4 -- Lines of context
-opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize', 'help', 'globals', 'skiprtp', 'folds' }
+vim.o.grepformat = '%f:%l:%c:%m'
+vim.o.grepprg = 'rg --vimgrep'
+vim.o.ignorecase = true -- Ignore case
+vim.o.inccommand = 'nosplit' -- preview incremental substitute
+vim.o.jumpoptions = 'view'
+vim.o.laststatus = 3 -- global statusline
+vim.o.linebreak = true -- Wrap lines at convenient points
+vim.o.list = true -- Show some invisible characters (tabs...
+vim.o.mouse = 'a' -- Enable mouse mode
+vim.o.number = true -- Print line number
+vim.o.pumblend = 10 -- Popup blend
+vim.o.pumheight = 10 -- Maximum number of entries in a popup
+vim.o.relativenumber = true -- Relative line numbers
+vim.o.scrolloff = 4 -- Lines of context
+vim.o.sessionoptions = 'buffers,curdir,tabpages,winsize,help,globals,skiprtp,folds'
 
-opt.shiftround = true -- Round indent
-opt.shiftwidth = 2 -- Size of an indent
+vim.o.shiftround = true -- Round indent
+vim.o.shiftwidth = 2 -- Size of an indent
 
-opt.shortmess:append({ W = true, I = true, c = true, C = true })
-opt.showmode = false -- Dont show mode since we have a statusline
+vim.o.shortmess = vim.o.shortmess .. 'WIcC'
+vim.o.showmode = false -- Dont show mode since we have a statusline
 
-opt.sidescrolloff = 8 -- Columns of context
-opt.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
+vim.o.sidescrolloff = 8 -- Columns of context
+vim.o.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
 
-opt.smartcase = true -- Don't ignore case with capitals
-opt.smartindent = true -- Insert indents automatically
+vim.o.smartcase = true -- Don't ignore case with capitals
+vim.o.smartindent = true -- Insert indents automatically
 
-opt.spelllang = { 'en' }
-opt.spelloptions:append('noplainbuffer')
+vim.o.spelllang = 'en'
+vim.o.spelloptions = append(vim.o.spelloptions, 'noplainbuffer')
 
-opt.splitbelow = true -- Put new windows below current
-opt.splitkeep = 'screen'
-opt.splitright = true -- Put new windows right of current
+vim.o.splitbelow = true -- Put new windows below current
+vim.o.splitkeep = 'screen'
+vim.o.splitright = true -- Put new windows right of current
 
-opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
+vim.o.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
 
 -- Number of spaces tabs count for
-opt.tabstop = 2
+vim.o.tabstop = 2
 
 -- True color support
-opt.termguicolors = true
+vim.o.termguicolors = true
 
 -- Lower than default (1000) to quickly trigger which-key
-opt.timeoutlen = vim.g.vscode and 1000 or 300
+vim.o.timeoutlen = vim.g.vscode and 1000 or 300
 
-opt.undofile = true
-opt.undolevels = 10000
+vim.o.undofile = true
+vim.o.undolevels = 10000
 
 -- Save swap file and trigger CursorHold
-opt.updatetime = 200
+vim.o.updatetime = 200
 
 -- Allow cursor to move where there is no text in visual block mode
-opt.virtualedit = 'block'
+vim.o.virtualedit = 'block'
 
 -- Command-line completion mode
-opt.wildmode = 'longest:full,full'
+vim.o.wildmode = 'longest:full,full'
 
 -- Minimum window width
-opt.winminwidth = 5
+vim.o.winminwidth = 5
 
 -- Disable line wrap
-opt.wrap = false
+vim.o.wrap = false
 
 -- Code folding options
-opt.foldcolumn = '1'
-opt.foldlevel = 99
-opt.foldlevelstart = 99
-opt.foldenable = true
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
 
 -- Formatter options
-opt.formatexpr = 'v:lua.require\'conform\'.formatexpr()'
-opt.formatoptions = 'jcroqlnt'
+vim.o.formatexpr = 'v:lua.require\'conform\'.formatexpr()'
+vim.o.formatoptions = 'jcroqlnt'
 
 --[[ File types ]]
 
