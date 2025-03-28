@@ -74,7 +74,6 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 - [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
 - [lukas-reineke/virt-column.nvim](https://dotfyle.com/plugins/lukas-reineke/virt-column.nvim)
 - [magicduck/grug-far.nvim](https://dotfyle.com/plugins/MagicDuck/grug-far.nvim)
-- [nvim-neo-tree/neo-tree.nvim](https://dotfyle.com/plugins/nvim-neo-tree/neo-tree.nvim)
 
 ### tools
 
