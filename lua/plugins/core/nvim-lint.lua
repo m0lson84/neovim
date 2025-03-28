@@ -19,6 +19,9 @@ return {
       linters_by_ft = { editorconfig = { 'editorconfig-checker' } },
       linters = {},
     },
+    keys = {
+      { '<leader>in', '<cmd>NvimLintInfo<cr>', desc = '[n]vim-lint' },
+    },
     config = function(_, opts)
       local M = {}
 
@@ -36,6 +39,7 @@ return {
       end
       lint.linters_by_ft = opts.linters_by_ft
 
+      --- Debounce a function.
       function M.debounce(ms, fn)
         local timer = vim.uv.new_timer()
         return function(...)
@@ -47,6 +51,17 @@ return {
         end
       end
 
+      --- Get information about the linters for the current buffer.
+      ---@param ft string The filetype to get information about.
+      function M.info(ft)
+        local linters = require('lint').linters_by_ft[ft]
+        vim.notify(
+          linters and ('Linters for ' .. ft .. ': \n' .. table.concat(linters, '\n'))
+            or ('No linters configured for file type: ' .. ft)
+        )
+      end
+
+      --- Run linters on the current buffer.
       function M.lint()
         local logger = utils.get_logger()
 
@@ -85,6 +100,10 @@ return {
       vim.api.nvim_create_autocmd(opts.events, {
         group = vim.api.nvim_create_augroup('nvim-lint', { clear = true }),
         callback = M.debounce(100, M.lint),
+      })
+
+      vim.api.nvim_create_user_command('NvimLintInfo', function() M.info(vim.bo.filetype) end, {
+        desc = 'Get information about the linters for the current buffer.',
       })
     end,
   },
