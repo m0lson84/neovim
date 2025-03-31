@@ -47,6 +47,7 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 - [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
 - [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
 - [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
+- [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
 - [nvim-neotest/neotest](https://dotfyle.com/plugins/nvim-neotest/neotest)
 - [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
 - [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
@@ -77,11 +78,8 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 
 ### tools
 
-- [amitds1997/remote-nvim.nvim](https://dotfyle.com/plugins/amitds1997/remote-nvim.nvim)
-- [benlubas/molten-nvim](https://dotfyle.com/plugins/benlubas/molten-nvim)
 - [folke/persistence.nvim](https://dotfyle.com/plugins/folke/persistence.nvim)
 - [gcballesteros/jupytext.nvim](https://dotfyle.com/plugins/GCBallesteros/jupytext.nvim)
-- [gcballesteros/NotebookNavigator.nvim](https://dotfyle.com/plugins/GCBallesteros/NotebookNavigator.nvim)
 - [jellydn/hurl.nvim](https://dotfyle.com/plugins/jellydn/hurl.nvim)
 - [mistweaverco/kulala.nvim](https://dotfyle.com/plugins/mistweaverco/kulala.nvim)
 - [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
