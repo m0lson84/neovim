@@ -1,5 +1,5 @@
 --[[
-grug-far.nvim
+grug-far.nvim (https://github.com/MagicDuck/grug-far.nvim)
 --]]
 
 --- Search and replace
