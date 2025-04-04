@@ -44,7 +44,7 @@ return {
   -- Configure language plugin
   {
     'mrcjkb/rustaceanvim',
-    version = '^5',
+    version = '^6',
     lazy = false,
     opts = {
       server = {
@@ -81,6 +81,7 @@ return {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
+        rust_analyzer = { enabled = false },
         taplo = {
           keys = {
             { 'K', hover_action, desc = 'show crate docs' },
