@@ -16,6 +16,8 @@ return {
       },
     },
   },
+
+  --- Completions
   {
     'saghen/blink.cmp',
     dependencies = {
@@ -35,4 +37,7 @@ return {
       },
     },
   },
+
+  -- Statusline
+  { 'AndreM222/copilot-lualine' },
 }
