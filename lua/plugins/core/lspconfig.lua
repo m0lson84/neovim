@@ -54,7 +54,7 @@ return {
       setup = {},
     },
     keys = {
-      { '<leader>il', '<cmd>che lspconfig<cr>', desc = '[l]sp' },
+      { '<leader>il', '<cmd>LspInfo<cr>', desc = '[l]sp' },
     },
     config = function(_, opts)
       vim.api.nvim_create_autocmd('LspAttach', {
