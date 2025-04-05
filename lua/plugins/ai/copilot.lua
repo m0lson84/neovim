@@ -15,9 +15,10 @@ return {
         help = true,
       },
     },
+    keys = {
+      { '<leader>aa', '<cmd>Copilot auth<cr>', desc = '[a]uthenticate' },
+    },
   },
-
-  --- Completions
   {
     'saghen/blink.cmp',
     dependencies = {
@@ -37,7 +38,7 @@ return {
       },
     },
   },
-
-  -- Statusline
-  { 'AndreM222/copilot-lualine' },
+  {
+    'AndreM222/copilot-lualine',
+  },
 }
