@@ -54,27 +54,18 @@ return {
               color = function() return utils.ui.fg('Statement') end,
             },
             {
-              function()
-                local icon = config.icons.kinds.Copilot
-                local status = require('copilot.api').status.data
-                return icon .. (status.message or '')
-              end,
-              cond = function()
-                if not package.loaded['copilot'] then return end
-                local ok, clients = pcall(utils.lsp.get_clients, { name = 'copilot', bufnr = 0 })
-                if not ok then return false end
-                return ok and #clients > 0
-              end,
-              color = function()
-                if not package.loaded['copilot'] then return end
-                local status = require('copilot.api').status.data
-                local colors = {
-                  ['Normal'] = utils.ui.fg('Special'),
-                  ['Warning'] = utils.ui.fg('DiagnosticError'),
-                  ['InProgress'] = utils.ui.fg('DiagnosticWarn'),
-                }
-                return colors[status.status] or utils.ui.fg('Special')
-              end,
+              'copilot',
+              show_colors = true,
+              show_loading = true,
+              symbols = {
+                status = {
+                  hl = {
+                    enabled = utils.ui.color('DiagnosticInfo'),
+                    warning = utils.ui.color('DiagnosticError'),
+                    unknown = utils.ui.color('DiagnosticWarning'),
+                  },
+                },
+              },
             },
             {
               function() return require('noice').api.status.mode.get() end,

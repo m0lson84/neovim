@@ -15,6 +15,9 @@ return {
         help = true,
       },
     },
+    keys = {
+      { '<leader>aa', '<cmd>Copilot auth<cr>', desc = '[a]uthenticate' },
+    },
   },
   {
     'saghen/blink.cmp',
@@ -34,5 +37,8 @@ return {
         },
       },
     },
+  },
+  {
+    'AndreM222/copilot-lualine',
   },
 }

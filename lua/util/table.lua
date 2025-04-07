@@ -5,6 +5,8 @@ Lua table utilities.
 ---@class util.table
 local M = {}
 
+--- Check if a table can be merged.
+--- @param v any: The value to check.
 local function can_merge(v) return type(v) == 'table' and (vim.tbl_isempty(v) or not M.is_list(v)) end
 
 --- Create a table with the given keys and value.
@@ -31,7 +33,7 @@ function M.extend_keys(table, keys, values)
 end
 
 -- Fast implementation to check if a table is a list
----@param t table
+---@param t table The table to check.
 function M.is_list(t)
   local i = 0
   ---@diagnostic disable-next-line: no-unknown
