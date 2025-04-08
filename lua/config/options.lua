@@ -39,6 +39,9 @@ vim.g.maplocalleader = '\\'
 -- mini.animate will also be disabled.
 vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
 
+-- Default shell
+vim.o.shell = (vim.fn.executable('fish') and 'fish') or vim.env.SHELL or 'sh'
+
 -- Providers
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
