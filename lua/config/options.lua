@@ -25,6 +25,10 @@ local function dict_to_vimopt(dict)
   return table.concat(parts, ',')
 end
 
+-- Hide deprecation warnings
+-- TODO: Remove this when deprecations are fixed
+vim.deprecate = function() end
+
 --[[ Global variables ]]
 
 -- Set <space> as the leader key
@@ -38,9 +42,6 @@ vim.g.maplocalleader = '\\'
 -- LSP, treesitter and other ft plugins will be disabled.
 -- mini.animate will also be disabled.
 vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
-
--- Default shell
-vim.o.shell = (vim.fn.executable('fish') and 'fish') or vim.env.SHELL or 'sh'
 
 -- Providers
 vim.g.loaded_ruby_provider = 0
@@ -56,6 +57,10 @@ vim.g.window_border = 'rounded'
 -- Use system clipboard
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
+-- Default shell
+vim.o.shell = (vim.fn.executable('fish') and 'fish') or vim.env.SHELL or 'sh'
+
+-- Relative line numbers
 vim.o.number = true
 vim.o.relativenumber = true
 

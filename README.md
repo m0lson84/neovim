@@ -53,6 +53,11 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 - [stevearc/conform.nvim](https://dotfyle.com/plugins/stevearc/conform.nvim)
 - [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
 
+### ai
+
+- [zbirenbaum/copilot.lua](https://dotfyle.com/plugins/zbirenbaum/copilot.lua)
+- [CopilotC-Nvim/CopilotChat.nvim](https://dotfyle.com/plugins/CopilotC-Nvim/CopilotChat.nvim)
+
 ### coding
 
 - [danymat/neogen](https://dotfyle.com/plugins/danymat/neogen)
@@ -64,7 +69,6 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 - [gbprod/yanky.nvim](https://dotfyle.com/plugins/gbprod/yanky.nvim)
 - [saghen/blink.cmp](https://dotfyle.com/plugins/Saghen/blink.cmp)
 - [tpope/vim-sleuth](https://github.com/tpope/vim-sleuth)
-- [zbirenbaum/copilot.lua](https://dotfyle.com/plugins/zbirenbaum/copilot.lua)
 
 ### editor
 
@@ -74,6 +78,8 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 - [folke/which-key.nvim](https://dotfyle.com/plugins/folke/which-key.nvim)
 - [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
 - [lukas-reineke/virt-column.nvim](https://dotfyle.com/plugins/lukas-reineke/virt-column.nvim)
+- [nvim-neo-tree/neo-tree.nvim](https://dotfyle.com/plugins/nvim-neo-tree/neo-tree.nvim)
+- [stevearc/oil.nvim](https://dotfyle.com/plugins/stevearc/oil.nvim)
 - [magicduck/grug-far.nvim](https://dotfyle.com/plugins/MagicDuck/grug-far.nvim)
 
 ### tools

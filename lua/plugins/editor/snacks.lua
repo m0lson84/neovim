@@ -17,9 +17,8 @@ return {
     ---@param opts snacks.Config
     ---@return snacks.Config
     opts = function(_, opts)
-      opts.explorer = {}
       opts.picker = { sources = {} }
-      for _, source in ipairs({ 'explorer', 'files', 'grep' }) do
+      for _, source in ipairs({ 'files', 'grep' }) do
         opts.picker.sources[source] = {
           hidden = true,
           exclude = {
@@ -33,9 +32,6 @@ return {
     end,
     keys = {
       { '<leader><leader>', pick('files'), desc = '[ ] search files' },
-      { '<leader>e', '<leader>fe', desc = '[e]xplorer cwd', remap = true },
-      { '<leader>fe', pick('explorer', { cwd = vim.uv.cwd() }), desc = '[e]xplorer cwd' },
-      { '<leader>fE', pick('explorer', { cwd = utils.root() }), desc = '[e]xplorer root' },
       { '<leader>sb', pick('buffers'), desc = '[b]uffers' },
       { '<leader>sd', pick('diagnostics'), desc = '[d]iagnostics' },
       { '<leader>sf', pick('files'), desc = '[f]iles' },
