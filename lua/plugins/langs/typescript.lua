@@ -74,7 +74,7 @@ return {
   {
     'mfussenegger/nvim-dap',
     dependencies = {
-      { 'williamboman/mason.nvim', opts = { ensure_installed = { 'js-debug-adapter' } } },
+      { 'mason-org/mason.nvim', opts = { ensure_installed = { 'js-debug-adapter' } } },
     },
     opts = function(_, opts)
       local dap = require('dap')

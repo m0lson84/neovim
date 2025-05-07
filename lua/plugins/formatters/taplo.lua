@@ -4,12 +4,12 @@ taplo (https://taplo.tamasfe.dev/)
 
 return {
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     opts = { ensure_installed = { 'taplo' } },
   },
   {
     'stevearc/conform.nvim',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       formatters = {
         taplo = {

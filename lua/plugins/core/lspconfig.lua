@@ -6,8 +6,8 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      { 'williamboman/mason.nvim' },
-      { 'williamboman/mason-lspconfig.nvim', config = function() end },
+      { 'mason-org/mason.nvim' },
+      { 'mason-org/mason-lspconfig.nvim' },
       { 'j-hui/fidget.nvim', opts = {} },
     },
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
@@ -141,7 +141,7 @@ return {
       end
 
       local mason = require('mason-lspconfig')
-      local servers = vim.tbl_keys(require('mason-lspconfig.mappings.server').lspconfig_to_package)
+      local servers = vim.tbl_keys(require('mason-lspconfig.mappings').get_all().lspconfig_to_package)
 
       local ensure_installed = {} ---@type string[]
       for server, config in pairs(opts.servers) do
@@ -158,7 +158,7 @@ return {
       end
 
       mason.setup({
-        automatic_installation = true,
+        automatic_enable = true,
         ensure_installed = vim.tbl_deep_extend(
           'force',
           ensure_installed,

@@ -4,14 +4,14 @@ shfmt (https://github.com/patrickvane/shfmt)
 
 return {
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     opts = {
       ensure_installed = { 'shfmt' },
     },
   },
   {
     'stevearc/conform.nvim',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       formatters = {
         shfmt = {

@@ -103,14 +103,14 @@ return {
 
   -- Configure debug adapter
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     opts = { ensure_installed = { 'codelldb' } },
   },
   {
     'mfussenegger/nvim-dap',
     dependencies = {
       {
-        'williamboman/mason.nvim',
+        'mason-org/mason.nvim',
         opts = { ensure_installed = { 'codelldb' } },
       },
     },

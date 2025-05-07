@@ -28,7 +28,7 @@ return {
   },
   {
     'stevearc/conform.nvim',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       formatters = {
         hurlfmt = {},
