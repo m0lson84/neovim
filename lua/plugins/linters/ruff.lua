@@ -12,14 +12,14 @@ end
 
 return {
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     opts = {
       ensure_installed = { 'ruff' },
     },
   },
   {
     'neovim/nvim-lspconfig',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       servers = {
         ruff = {

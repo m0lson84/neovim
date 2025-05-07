@@ -4,14 +4,14 @@ StyLua (https://github.com/JohnnyMorganz/StyLua)
 
 return {
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     opts = {
       ensure_installed = { 'stylua' },
     },
   },
   {
     'stevearc/conform.nvim',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       formatters = {
         stylua = {},

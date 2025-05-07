@@ -6,11 +6,11 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      { 'williamboman/mason.nvim' },
-      { 'williamboman/mason-lspconfig.nvim', config = function() end },
+      { 'mason-org/mason.nvim' },
+      { 'mason-org/mason-lspconfig.nvim' },
       { 'j-hui/fidget.nvim', opts = {} },
     },
-    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
+    event = { 'BufReadPre', 'BufNewFile', 'BufWritePre' },
     opts = {
       diagnostics = {
         underline = true,
@@ -79,8 +79,10 @@ return {
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if not client then return end
 
+          local lsp_methods = vim.lsp.protocol.Methods
+
           -- document highlights
-          if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+          if client:supports_method(lsp_methods.textDocument_documentHighlight, event.buf) then
             local highlight_group = utils.autocmd.group('lsp_highlight')
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
@@ -104,13 +106,13 @@ return {
           end
 
           -- inlay hints
-          if opts.inlay_hints.enabled and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+          if opts.inlay_hints.enabled and client:supports_method(lsp_methods.textDocument_inlayHint, event.buf) then
             vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
           end
 
           -- code lens
           if opts.codelens.enabled and vim.lsp.codelens then
-            utils.lsp.on_supports_method('textDocument/codeLens', function(_, buffer)
+            utils.lsp.on_supports_method(lsp_methods.textDocument_codeLens, function(_, buffer)
               vim.lsp.codelens.refresh()
               vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
                 buffer = buffer,
@@ -137,11 +139,11 @@ return {
         elseif opts.setup['*'] then
           if opts.setup['*'](server, config) then return end
         end
-        require('lspconfig')[server].setup(config)
+        vim.lsp.config(server, config)
       end
 
       local mason = require('mason-lspconfig')
-      local servers = vim.tbl_keys(require('mason-lspconfig.mappings.server').lspconfig_to_package)
+      local servers = vim.tbl_keys(require('mason-lspconfig.mappings').get_mason_map().lspconfig_to_package)
 
       local ensure_installed = {} ---@type string[]
       for server, config in pairs(opts.servers) do
@@ -158,13 +160,14 @@ return {
       end
 
       mason.setup({
-        automatic_installation = true,
+        automatic_enable = {
+          exclude = { 'rust_analyzer' },
+        },
         ensure_installed = vim.tbl_deep_extend(
           'force',
           ensure_installed,
           utils.plugin.opts('mason-lspconfig.nvim').ensure_installed or {}
         ),
-        handlers = { setup },
       })
     end,
   },

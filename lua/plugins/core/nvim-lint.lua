@@ -5,14 +5,14 @@ nvim-lint (https://github.com/mfussenegger/nvim-lint)
 return {
 
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     opts = {
       ensure_installed = { 'editorconfig-checker' },
     },
   },
   {
     'mfussenegger/nvim-lint',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     opts = {
       events = { 'BufWritePost', 'BufReadPost', 'InsertLeave' },
