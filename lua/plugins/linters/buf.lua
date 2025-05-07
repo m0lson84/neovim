@@ -4,14 +4,14 @@ Buf (https://buf.build/)
 
 return {
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     opts = {
       ensure_installed = { 'buf' },
     },
   },
   {
     'mfussenegger/nvim-lint',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       linters = {
         buf_lint = {},

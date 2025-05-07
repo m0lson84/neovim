@@ -5,14 +5,14 @@ markdownlint (https://github.com/DavidAnson/markdownlint)
 return {
 
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     opts = {
       ensure_installed = { 'markdownlint-cli2' },
     },
   },
   {
     'mfussenegger/nvim-lint',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       linters = {
         ['markdownlint-cli2'] = {

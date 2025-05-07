@@ -4,14 +4,14 @@ CSpell (https://cspell.org/)
 
 return {
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     opts = {
       ensure_installed = { 'cspell' },
     },
   },
   {
     'mfussenegger/nvim-lint',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       linters = {
         cspell = {

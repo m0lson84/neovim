@@ -4,14 +4,14 @@ gofumpt (https://github.com/mvdan/gofumpt)
 
 return {
   {
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     opts = {
       ensure_installed = { 'gofumpt' },
     },
   },
   {
     'stevearc/conform.nvim',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       formatters = {
         gofumpt = {},

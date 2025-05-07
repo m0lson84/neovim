@@ -5,7 +5,7 @@ hadolint (https://github.com/hadolint/hadolint)
 return {
   {
     'mfussenegger/nvim-lint',
-    dependencies = { 'williamboman/mason.nvim' },
+    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       linters = {
         erb_lint = {},

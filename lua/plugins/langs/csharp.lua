@@ -69,7 +69,7 @@ return {
   {
     'mfussenegger/nvim-dap',
     dependencies = {
-      { 'williamboman/mason.nvim', opts = { ensure_installed = { 'netcoredbg' } } },
+      { 'mason-org/mason.nvim', opts = { ensure_installed = { 'netcoredbg' } } },
     },
     opts = function(_, opts)
       local dap = require('dap')
