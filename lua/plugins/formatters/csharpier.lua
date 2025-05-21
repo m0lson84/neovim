@@ -14,7 +14,11 @@ return {
     dependencies = { 'mason-org/mason.nvim' },
     opts = {
       formatters = {
-        csharpier = {},
+        csharpier = {
+          command = 'dotnet',
+          args = { 'csharpier', 'format', '--write-stdout' },
+          stdin = true,
+        },
       },
     },
   },
