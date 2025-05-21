@@ -12,7 +12,7 @@ local goto_definition = function() require('omnisharp_extended').lsp_definitions
 local goto_implementation = function() require('omnisharp_extended').lsp_implementation() end
 
 --- Go to type definition handler
-local goto_type_definition = function() require('omnisharp_extended').lsp_type_definitions() end
+local goto_type_definition = function() require('omnisharp_extended').lsp_type_definition() end
 
 return {
 
@@ -29,12 +29,6 @@ return {
     opts = {
       servers = {
         omnisharp = {
-          handlers = {
-            ['textDocument/definition'] = function(...) return require('omnisharp_extended').handler(...) end,
-            ['textDocument/typeDefinition'] = function(...) return require('omnisharp_extended').handler(...) end,
-            ['textDocument/references'] = function(...) return require('omnisharp_extended').handler(...) end,
-            ['textDocument/implementation'] = function(...) return require('omnisharp_extended').handler(...) end,
-          },
           keys = {
             { 'gd', goto_definition, desc = 'Goto Definition' },
             { 'gi', goto_implementation, desc = 'Goto Implementation' },
@@ -43,6 +37,7 @@ return {
           },
           settings = {
             FormattingOptions = {
+              EnableEditorConfigSupport = true,
               OrganizeImports = true,
             },
             RoslynExtensionsOptions = {
