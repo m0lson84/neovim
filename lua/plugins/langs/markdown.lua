@@ -44,22 +44,14 @@ return {
   -- Markdown preview
   {
     'jannis-baum/vivify.vim',
-  },
-  {
-    'Tweekism/markdown-preview.nvim',
-    event = { 'BufRead' },
-    build = function()
-      require('lazy').load({ plugins = { 'markdown-preview.nvim' } })
-      vim.fn['mkdp#util#install']()
-    end,
+    opts = {
+      filetypes = { 'vimwiki' },
+    },
     keys = {
       { '<leader>m', '', ft = 'markdown', desc = '[m]arkdown' },
-      { '<leader>mp', '<cmd>MarkdownPreviewToggle<cr>', ft = 'markdown', desc = '[p]review' },
+      { '<leader>mp', '<cmd>Vivify<cr>', ft = 'markdown', desc = '[p]review' },
     },
-    config = function()
-      vim.g.mkdp_theme = 'dark'
-      vim.g.mkdp_page_title = 'Markdown Preview'
-    end,
+    config = function(_, opts) vim.g.vivify_filetypes = opts.filetypes or {} end,
   },
   {
     'wallpants/github-preview.nvim',
