@@ -15,14 +15,11 @@ return {
         help = true,
       },
     },
-    keys = {
-      { '<leader>aa', '<cmd>Copilot auth<cr>', desc = '[a]uthenticate' },
-    },
   },
   {
     'saghen/blink.cmp',
     dependencies = {
-      { 'giuxtaposition/blink-cmp-copilot' },
+      { 'fang2hou/blink-copilot' },
     },
     opts = {
       sources = {
@@ -30,7 +27,7 @@ return {
         providers = {
           copilot = {
             name = 'copilot',
-            module = 'blink-cmp-copilot',
+            module = 'blink-copilot',
             score_offset = 100,
             async = true,
           },
