@@ -10,7 +10,9 @@ deepcopy
 filereadable
 findbuf
 keymap
+keymaps
 lspconfig
 nvim
 statuscolumn
 strcharpart
+supermaven

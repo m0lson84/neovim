@@ -21,7 +21,7 @@ return {
           icon = { icon = '󰓩', color = 'cyan' },
           expand = function() return require('which-key.extras').expand.buf() end,
         },
-        { '<leader>a', group = '[a]i', icon = { icon = '', color = 'blue' } },
+        { '<leader>a', group = '[a]i', icon = { icon = '󰚩', color = 'blue' } },
         { '<leader>c', group = '[c]ode', icon = { icon = '', color = 'green' } },
         { '<leader>d', group = '[d]ebug', icon = { icon = '', color = 'red' } },
         { '<leader>f', group = '[f]ile', icon = { icon = '', color = 'gray' } },
