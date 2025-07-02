@@ -95,11 +95,13 @@ return {
   -- Configure test runner
   {
     'nvim-neotest/neotest',
-    dependencies = { 'Issafalcon/neotest-dotnet' },
+    dependencies = { 'nsidorenco/neotest-vstest' },
     opts = {
       adapters = {
-        ['neotest-dotnet'] = {
-          discovery_root = 'solution',
+        ['neotest-vstest'] = {
+          dap_settings = {
+            type = 'netcoredbg',
+          },
         },
       },
     },
