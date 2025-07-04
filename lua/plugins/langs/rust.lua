@@ -48,10 +48,6 @@ return {
     lazy = false,
     opts = {
       server = {
-        on_attach = function(_, bufnr)
-          code_actions(bufnr)
-          debuggables(bufnr)
-        end,
         load_vscode_settings = true,
         default_settings = {
           ['rust-analyzer'] = {
@@ -71,6 +67,10 @@ return {
             },
           },
         },
+        on_attach = function(_, bufnr)
+          code_actions(bufnr)
+          debuggables(bufnr)
+        end,
       },
     },
     config = function(_, opts) vim.g.rustaceanvim = vim.tbl_deep_extend('keep', vim.g.rustaceanvim or {}, opts) end,
@@ -99,25 +99,6 @@ return {
         rust = { 'rustfmt' },
       },
     },
-  },
-
-  -- Configure debug adapter
-  {
-    'mason-org/mason.nvim',
-    opts = { ensure_installed = { 'codelldb' } },
-  },
-  {
-    'mfussenegger/nvim-dap',
-    dependencies = {
-      {
-        'mason-org/mason.nvim',
-        opts = { ensure_installed = { 'codelldb' } },
-      },
-    },
-    opts = function()
-      local vscode = require('dap.ext.vscode')
-      vscode.type_to_filetypes['lldb'] = { 'cpp', 'c', 'rust' }
-    end,
   },
 
   -- Configure test runner
