@@ -21,42 +21,6 @@ local function get_args(config)
   return config
 end
 
---- Load all configurations from any found VS Code launch.json files.
----@param path string|nil Path to the directory to start searching in. Defaults to the current working directory.
-local function load_launchjs(path)
-  local dap = require('dap')
-  local vscode = require('dap.ext.vscode')
-
-  -- Get the path to the configuration directory
-  local root_dir = utils.root.config(path)
-  if not root_dir then
-    vim.notify('Unable to load launch.json: config directory not found.', vim.log.levels.WARN)
-    return
-  end
-  if not utils.file.exists(root_dir .. '/' .. 'launch.json') then
-    vim.notify('Unable to load launch.json: file not found.', vim.log.levels.WARN)
-    return
-  end
-
-  -- Clear any existing configurations
-  dap.configurations = {}
-
-  -- Load DAP configurations from launch.json
-  vscode.load_launchjs(root_dir .. '/' .. 'launch.json')
-
-  -- Convert any 'node' configurations to 'pwa-node'
-  for _, filetype in ipairs(vscode.type_to_filetypes.node) do
-    if not dap.configurations[filetype] then goto continue end
-    for _, config in ipairs(dap.configurations[filetype]) do
-      config.console = 'integratedTerminal'
-      if config.type == 'node' then config.type = 'pwa-node' end
-    end
-    ::continue::
-  end
-
-  vim.notify('Reloaded configurations from launch.json', vim.log.levels.INFO, { title = 'nvim-dap' })
-end
-
 return {
   {
     'mfussenegger/nvim-dap',
@@ -85,7 +49,6 @@ return {
       { '<leader>dr', function() require('dap').repl.toggle() end, desc = 'toggle [r]EPL' },
       { '<leader>ds', function() require('dap').session() end, desc = '[s]ession' },
       { '<leader>dt', function() require('dap').terminate() end, desc = '[t]erminate' },
-      { '<leader>dv', load_launchjs, desc = 'load [v]scode launch.json' },
       { '<leader>dw', function() require('dap.ui.widgets').hover() end, desc = '[w]idgets' },
     },
     config = function()
@@ -107,13 +70,10 @@ return {
         })
       end
 
-      -- setup dap config by VSCode launch.json file
+      -- Setup dap config by VSCode launch.json file
       local vscode = require('dap.ext.vscode')
       local json = require('plenary.json')
       vscode.json_decode = function(str) return vim.json.decode(json.json_strip_comments(str)) end
-
-      -- Load DAP configurations from launch.json
-      vscode.load_launchjs()
     end,
   },
 
