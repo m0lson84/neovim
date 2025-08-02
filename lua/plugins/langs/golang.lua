@@ -18,7 +18,6 @@ return {
         gopls = {
           settings = {
             gopls = {
-              gofumpt = true,
               codelenses = {
                 gc_details = false,
                 generate = true,
@@ -47,7 +46,6 @@ return {
               },
               usePlaceholders = true,
               completeUnimported = true,
-              staticcheck = true,
               directoryFilters = { '-.git', '-.idea', '-node_modules', '-.vscode', '-.vscode-test' },
               templateExtensions = { 'gotmpl', 'tmpl' },
               semanticTokens = true,
@@ -75,12 +73,22 @@ return {
     },
   },
 
+  -- Configure linters
+  {
+    'mfussenegger/nvim-lint',
+    opts = {
+      linters_by_ft = {
+        go = { 'golangcilint' },
+      },
+    },
+  },
+
   -- Configure formatters
   {
     'stevearc/conform.nvim',
     opts = {
       formatters_by_ft = {
-        go = { 'goimports', 'gofumpt' },
+        go = { 'golangci-lint' },
       },
     },
   },
