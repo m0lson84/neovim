@@ -1,5 +1,5 @@
 --[[
-Ruff (https://beta.ruff.rs/docs/)
+Ruff (https://docs.astral.sh/ruff/)
 --]]
 
 --- Organize all imports
