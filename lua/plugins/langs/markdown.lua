@@ -41,7 +41,7 @@ return {
     },
   },
 
-  -- Markdown preview
+  -- Document preview
   {
     'jannis-baum/vivify.vim',
     opts = {
