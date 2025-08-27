@@ -2,6 +2,14 @@
 Javascript / Typescript language support
 --]]
 
+local find_config = function(file_name)
+  return function()
+    local file = vim.fn.expand('%:p')
+    if string.find(file, '/packages/') then return string.match(file, '(.-/[^/]+/)src') .. file_name end
+    return vim.fn.getcwd() .. '/' .. file_name
+  end
+end
+
 return {
 
   -- Add languages to treesitter
@@ -142,21 +150,18 @@ return {
   -- Configure test runner
   {
     'nvim-neotest/neotest',
-    dependencies = { 'nvim-neotest/neotest-jest' },
+    dependencies = {
+      'nvim-neotest/neotest-jest',
+      'marilari88/neotest-vitest',
+    },
     opts = {
       adapters = {
         ['neotest-jest'] = {
           jestCommand = 'npm test --',
-          jestConfigFile = function()
-            local file = vim.fn.expand('%:p')
-            if string.find(file, '/packages/') then return string.match(file, '(.-/[^/]+/)src') .. 'jest.config.ts' end
-            return vim.fn.getcwd() .. '/jest.config.ts'
-          end,
-          cwd = function()
-            local file = vim.fn.expand('%:p')
-            if string.find(file, '/packages/') then return string.match(file, '(.-/[^/]+/)src') end
-            return vim.fn.getcwd()
-          end,
+          jestConfigFile = find_config('jest.config.ts'),
+        },
+        ['neotest-vitest'] = {
+          vitestConfigFile = find_config('vitest.config.ts'),
         },
       },
     },
