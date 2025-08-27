@@ -78,13 +78,11 @@ return {
   -- Activate virtual environment
   {
     'linux-cultist/venv-selector.nvim',
-    branch = 'regexp',
     ft = 'python',
-    cmd = 'VenvSelect',
+    opts = {},
     keys = {
       { '<leader>cv', '<cmd>:VenvSelect<cr>', ft = 'python', desc = 'Select VirtualEnv' },
     },
-    opts = {},
   },
 
   -- Filetype icons
