@@ -1,5 +1,5 @@
 --[[
-mini.ai (https://github.com/echasnovski/mini.nvim)
+mini.ai (https://github.com/nvim-mini/mini.nvim)
 --]]
 
 -- taken from MiniExtra.gen_ai_spec.buffer
@@ -55,7 +55,7 @@ end
 
 return {
   {
-    'echasnovski/mini.ai',
+    'nvim-mini/mini.ai',
     event = 'VeryLazy',
     opts = function()
       local ai = require('mini.ai')

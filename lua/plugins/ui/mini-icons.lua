@@ -1,10 +1,10 @@
 --[[
-mini.icons (https://github.com/echasnovski/mini.nvim)
+mini.icons (https://github.com/nvim-mini/mini.nvim)
 --]]
 
 return {
   {
-    'echasnovski/mini.icons',
+    'nvim-mini/mini.icons',
     lazy = true,
     opts = {
       extension = {

@@ -12,7 +12,7 @@ return {
   {
     'stevearc/oil.nvim',
     lazy = false,
-    dependencies = { 'echasnovski/mini.icons' },
+    dependencies = { 'nvim-mini/mini.icons' },
     opts = {
       skip_confirm_for_simple_edits = true,
       view_options = {

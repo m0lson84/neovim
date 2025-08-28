@@ -1,10 +1,10 @@
 --[[
-mini.pairs (https://github.com/echasnovski/mini.nvim)
+mini.pairs (https://github.com/nvim-mini/mini.nvim)
 --]]
 
 return {
   {
-    'echasnovski/mini.pairs',
+    'nvim-mini/mini.pairs',
     event = 'VeryLazy',
     opts = {
       modes = { insert = true, command = true, terminal = false },

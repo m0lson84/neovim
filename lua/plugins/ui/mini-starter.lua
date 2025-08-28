@@ -1,10 +1,10 @@
 --[[
-mini.starter (https://github.com/echasnovski/mini.nvim)
+mini.starter (https://github.com/nvim-mini/mini.nvim)
 --]]
 
 return {
   {
-    'echasnovski/mini.starter',
+    'nvim-mini/mini.starter',
     version = false,
     dependencies = { 'MaximilianLloyd/ascii.nvim' },
     event = 'VimEnter',

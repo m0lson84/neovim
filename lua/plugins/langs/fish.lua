@@ -41,7 +41,7 @@ return {
 
   -- Filetype icons
   {
-    'echasnovski/mini.icons',
+    'nvim-mini/mini.icons',
     opts = {
       extension = {
         fish = { glyph = '', hl = 'MiniIconsGrey' },

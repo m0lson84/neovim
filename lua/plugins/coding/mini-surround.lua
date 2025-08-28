@@ -1,10 +1,10 @@
 --[[
-mini.surround (https://github.com/echasnovski/mini.nvim)
+mini.surround (https://github.com/nvim-mini/mini.nvim)
 --]]
 
 return {
   {
-    'echasnovski/mini.surround',
+    'nvim-mini/mini.surround',
     opts = {
       mappings = {
         add = 'gsa',

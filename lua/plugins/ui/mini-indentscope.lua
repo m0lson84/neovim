@@ -1,10 +1,10 @@
 --[[
-mini.indentscope (https://github.com/echasnovski/mini.nvim)
+mini.indentscope (https://github.com/nvim-mini/mini.nvim)
 --]]
 
 return {
   {
-    'echasnovski/mini.indentscope',
+    'nvim-mini/mini.indentscope',
     version = false,
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     opts = {

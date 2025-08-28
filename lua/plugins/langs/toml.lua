@@ -32,7 +32,7 @@ return {
 
   -- Filetype icons
   {
-    'echasnovski/mini.icons',
+    'nvim-mini/mini.icons',
     opts = {
       extension = {
         ['toml.tmpl'] = { glyph = '', hl = 'MiniIconsGrey' },

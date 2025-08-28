@@ -33,7 +33,7 @@ return {
 
   -- Filetype icons
   {
-    'echasnovski/mini.icons',
+    'nvim-mini/mini.icons',
     opts = {
       file = {
         ['.dockerignore'] = { glyph = '󰡨', hl = 'MiniIconsBlue' },
