@@ -14,13 +14,18 @@ return {
   {
     'neovim/nvim-lspconfig',
     opts = {
-      settings = {
-        tinymist = {
-          formatterMode = 'typstyle',
-        },
-      },
       servers = {
         tinymist = {},
+      },
+    },
+  },
+
+  -- Configure formatters
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        typst = { 'typstyle' },
       },
     },
   },
