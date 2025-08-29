@@ -14,13 +14,18 @@ return {
   {
     'neovim/nvim-lspconfig',
     opts = {
-      settings = {
-        tinymist = {
-          formatterMode = 'typstyle',
-        },
-      },
       servers = {
         tinymist = {},
+      },
+    },
+  },
+
+  -- Configure formatters
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        typst = { 'typstyle' },
       },
     },
   },
@@ -30,6 +35,6 @@ return {
     'chomosuke/typst-preview.nvim',
     ft = 'typst',
     version = '1.*',
-    opts = {}, -- lazy.nvim will implicitly calls `setup {}`
+    opts = {},
   },
 }
