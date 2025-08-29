@@ -16,4 +16,4 @@ nvim
 opencode
 statuscolumn
 strcharpart
-supermaven
+typst
