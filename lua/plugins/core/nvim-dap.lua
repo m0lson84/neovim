@@ -28,29 +28,6 @@ return {
       { 'rcarriga/nvim-dap-ui' },
       { 'theHamsta/nvim-dap-virtual-text', opts = {} },
     },
-    keys = {
-      { '<F5>', function() require('dap').continue() end, desc = '[F5] continue' },
-      { '<F9>', function() require('dap').step_out() end, desc = '[F9] step out' },
-      { '<F10>', function() require('dap').step_over() end, desc = '[F10] step over' },
-      { '<F11>', function() require('dap').step_into() end, desc = '[F11] step into' },
-      { '<F12>', function() require('dap').step_over() end, desc = '[F12] terminate' },
-      { '<leader>da', function() require('dap').continue({ before = get_args }) end, desc = 'run with [a]rgs' },
-      { '<leader>db', function() require('dap').toggle_breakpoint() end, desc = 'toggle [b]reakpoint' },
-      { '<leader>dB', conditional_breakpoint, desc = 'conditional [B]reakpoint' },
-      { '<leader>dc', function() require('dap').continue() end, desc = '[c]ontinue' },
-      { '<leader>dc', function() require('dap').continue() end, desc = '[c]ontinue' },
-      { '<leader>dC', function() require('dap').run_to_cursor() end, desc = 'run to [C]ursor' },
-      { '<leader>dg', function() require('dap').goto_() end, desc = '[g]oto line' },
-      { '<leader>di', function() require('dap').step_into() end, desc = 'step [i]nto' },
-      { '<leader>dl', function() require('dap').run_last() end, desc = 'run [l]ast' },
-      { '<leader>do', function() require('dap').step_out() end, desc = 'step [o]ut' },
-      { '<leader>dO', function() require('dap').step_over() end, desc = 'step [O]ver' },
-      { '<leader>dp', function() require('dap').pause() end, desc = '[p]ause' },
-      { '<leader>dr', function() require('dap').repl.toggle() end, desc = 'toggle [r]EPL' },
-      { '<leader>ds', function() require('dap').session() end, desc = '[s]ession' },
-      { '<leader>dt', function() require('dap').terminate() end, desc = '[t]erminate' },
-      { '<leader>dw', function() require('dap.ui.widgets').hover() end, desc = '[w]idgets' },
-    },
     config = function()
       require('mason-nvim-dap').setup(utils.plugin.opts('mason-nvim-dap.nvim'))
 
@@ -75,6 +52,29 @@ return {
       local json = require('plenary.json')
       vscode.json_decode = function(str) return vim.json.decode(json.json_strip_comments(str)) end
     end,
+    keys = {
+      { '<F5>', function() require('dap').continue() end, desc = '[F5] continue' },
+      { '<F9>', function() require('dap').step_out() end, desc = '[F9] step out' },
+      { '<F10>', function() require('dap').step_over() end, desc = '[F10] step over' },
+      { '<F11>', function() require('dap').step_into() end, desc = '[F11] step into' },
+      { '<F12>', function() require('dap').step_over() end, desc = '[F12] terminate' },
+      { '<leader>da', function() require('dap').continue({ before = get_args }) end, desc = 'run with [a]rgs' },
+      { '<leader>db', function() require('dap').toggle_breakpoint() end, desc = 'toggle [b]reakpoint' },
+      { '<leader>dB', conditional_breakpoint, desc = 'conditional [B]reakpoint' },
+      { '<leader>dc', function() require('dap').continue() end, desc = '[c]ontinue' },
+      { '<leader>dc', function() require('dap').continue() end, desc = '[c]ontinue' },
+      { '<leader>dC', function() require('dap').run_to_cursor() end, desc = 'run to [C]ursor' },
+      { '<leader>dg', function() require('dap').goto_() end, desc = '[g]oto line' },
+      { '<leader>di', function() require('dap').step_into() end, desc = 'step [i]nto' },
+      { '<leader>dl', function() require('dap').run_last() end, desc = 'run [l]ast' },
+      { '<leader>do', function() require('dap').step_out() end, desc = 'step [o]ut' },
+      { '<leader>dO', function() require('dap').step_over() end, desc = 'step [O]ver' },
+      { '<leader>dp', function() require('dap').pause() end, desc = '[p]ause' },
+      { '<leader>dr', function() require('dap').repl.toggle() end, desc = 'toggle [r]EPL' },
+      { '<leader>ds', function() require('dap').session() end, desc = '[s]ession' },
+      { '<leader>dt', function() require('dap').terminate() end, desc = '[t]erminate' },
+      { '<leader>dw', function() require('dap.ui.widgets').hover() end, desc = '[w]idgets' },
+    },
   },
 
   -- fancy UI for the debugger
@@ -102,10 +102,6 @@ return {
         },
       },
     },
-    keys = {
-      { '<leader>de', function() require('dapui').eval() end, desc = '[e]val', mode = { 'n', 'v' } },
-      { '<leader>du', function() require('dapui').toggle({}) end, desc = '[u]i' },
-    },
     config = function(_, opts)
       local dap = require('dap')
       local dapui = require('dapui')
@@ -114,6 +110,10 @@ return {
       dap.listeners.before.event_terminated['dapui_config'] = function() dapui.close({}) end
       dap.listeners.before.event_exited['dapui_config'] = function() dapui.close({}) end
     end,
+    keys = {
+      { '<leader>de', function() require('dapui').eval() end, desc = '[e]val', mode = { 'n', 'v' } },
+      { '<leader>du', function() require('dapui').toggle({}) end, desc = '[u]i' },
+    },
   },
 
   -- mason.nvim integration

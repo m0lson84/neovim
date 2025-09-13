@@ -7,6 +7,10 @@ return {
     'jellydn/hurl.nvim',
     dependencies = { 'MunifTanjim/nui.nvim' },
     ft = 'hurl',
+    opts = {
+      debug = true,
+      mode = 'split',
+    },
     keys = {
       { '<leader>ha', '<cmd>HurlRunner<cr>', ft = 'hurl', desc = 'execute [a]ll requests' },
       { '<leader>hr', '<cmd>HurlRunnerAt<cr>', ft = 'hurl', desc = 'execute selected [r]equest' },
@@ -14,10 +18,6 @@ return {
       { '<leader>hl', '<cmd>HurlShowLastResposne<cr>', ft = 'hurl', desc = 'show [l]ast response' },
       { '<leader>ht', '<cmd>HurlToggleMode<cr>', ft = 'hurl', desc = '[t]oggle display mode' },
       { '<leader>hm', '<cmd>HurlManageVariable<cr>', ft = 'hurl', desc = '[m]anage environment' },
-    },
-    opts = {
-      debug = true,
-      mode = 'split',
     },
   },
   {
