@@ -19,9 +19,6 @@ return {
       linters_by_ft = { editorconfig = { 'editorconfig-checker' } },
       linters = {},
     },
-    keys = {
-      { '<leader>in', '<cmd>NvimLintInfo<cr>', desc = '[n]vim-lint' },
-    },
     config = function(_, opts)
       local M = {}
 
@@ -106,5 +103,8 @@ return {
         desc = 'Get information about the linters for the current buffer.',
       })
     end,
+    keys = {
+      { '<leader>in', '<cmd>NvimLintInfo<cr>', desc = '[n]vim-lint' },
+    },
   },
 }

@@ -49,11 +49,6 @@ return {
         },
       },
     },
-    keys = {
-      { '<leader>e', '<leader>fe', desc = '[e]xplorer cwd', remap = true },
-      { '<leader>fe', explore(vim.uv.cwd()), desc = '[e]xplorer cwd' },
-      { '<leader>fE', explore(utils.root()), desc = '[e]xplorer root' },
-    },
     config = function(_, opts)
       local function on_move(data) Snacks.rename.on_rename_file(data.source, data.destination) end
       local events = require('neo-tree.events')
@@ -69,5 +64,10 @@ return {
         callback = function() events.fire_event(events.GIT_EVENT) end,
       })
     end,
+    keys = {
+      { '<leader>e', '<leader>fe', desc = '[e]xplorer cwd', remap = true },
+      { '<leader>fe', explore(vim.uv.cwd()), desc = '[e]xplorer cwd' },
+      { '<leader>fE', explore(utils.root()), desc = '[e]xplorer root' },
+    },
   },
 }

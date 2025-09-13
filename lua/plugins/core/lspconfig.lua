@@ -53,9 +53,6 @@ return {
       servers = {},
       setup = {},
     },
-    keys = {
-      { '<leader>il', '<cmd>LspInfo<cr>', desc = '[l]sp' },
-    },
     config = function(_, opts)
       vim.api.nvim_create_autocmd('LspAttach', {
         group = utils.autocmd.group('lsp_attach'),
@@ -170,5 +167,8 @@ return {
         ),
       })
     end,
+    keys = {
+      { '<leader>il', '<cmd>LspInfo<cr>', desc = '[l]sp' },
+    },
   },
 }

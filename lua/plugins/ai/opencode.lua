@@ -15,7 +15,7 @@ end
 
 --- Select prompt to send to opencode
 local select_prompt = function()
-  return function() require('opencode').select_prompt() end
+  return function() require('opencode').select() end
 end
 
 --- Toggle embedded opencode TUI
@@ -28,9 +28,10 @@ return {
     'NickvanDyke/opencode.nvim',
     dependencies = { 'folke/snacks.nvim' },
     opts = {},
+    config = function(_, opts) vim.g.opencode_opts = opts or {} end,
     keys = {
       { '<leader>aa', input_prompt(), mode = { 'n' }, desc = '[a]sk opencode' },
-      { '<leader>aa', input_prompt('@selection'), mode = { 'v' }, desc = '[a]sk selection' },
+      { '<leader>aa', input_prompt('@selection: '), mode = { 'v' }, desc = '[a]sk selection' },
       { '<leader>ap', select_prompt(), mode = { 'n', 'v' }, desc = 'select [p]rompt' },
       { '<leader>as', new_session(), desc = 'new [s]ession' },
       { '<leader>at', toggle_panel(), desc = '[t]oggle opencode' },
