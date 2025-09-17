@@ -117,10 +117,10 @@ end
 vim.keymap.set('n', '<leader>cd', vim.diagnostic.open_float, { desc = 'line [d]iagnostics' })
 vim.keymap.set('n', ']d', diagnostic_goto(true), { desc = 'next diagnostic' })
 vim.keymap.set('n', '[d', diagnostic_goto(false), { desc = 'prev diagnostic' })
-vim.keymap.set('n', ']e', diagnostic_goto(true, 'ERROR'), { desc = 'next error' })
-vim.keymap.set('n', '[e', diagnostic_goto(false, 'ERROR'), { desc = 'prev error' })
-vim.keymap.set('n', ']w', diagnostic_goto(true, 'WARN'), { desc = 'next warning' })
-vim.keymap.set('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'prev warning' })
+vim.keymap.set('n', ']e', diagnostic_goto(true, vim.diagnostic.ERROR), { desc = 'next error' })
+vim.keymap.set('n', '[e', diagnostic_goto(false, vim.diagnostic.ERROR), { desc = 'prev error' })
+vim.keymap.set('n', ']w', diagnostic_goto(true, vim.diagnostic.WARN), { desc = 'next warning' })
+vim.keymap.set('n', '[w', diagnostic_goto(false, vim.diagnostic.WARN), { desc = 'prev warning' })
 
 -- [[ lazygit ]]
 

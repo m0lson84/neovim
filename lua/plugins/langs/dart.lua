@@ -31,7 +31,6 @@ return {
               args = {},
             },
           }
-          require('dap.ext.vscode').load_launchjs()
         end,
       },
       ui = {

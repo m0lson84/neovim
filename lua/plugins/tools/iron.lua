@@ -3,16 +3,24 @@
 --]]
 
 ---Clear output of the current REPL.
-local clear = function() require('iron.core').send(nil, string.char(12)) end
+local function clear()
+  return function() require('iron.core').send(nil, string.char(12)) end
+end
 
 ---Exit the current REPL.
-local exit = function() require('iron.core').close_repl() end
+local function exit()
+  return function() require('iron.core').close_repl() end
+end
 
 ---Interrupt execution of the current REPL.
-local interrupt = function() require('iron.core').send(nil, string.char(03)) end
+local function interrupt()
+  return function() require('iron.core').send(nil, string.char(03)) end
+end
 
 ---Send enter to the current REPL.
-local send_enter = function() require('iron.core').send(nil, string.char(13)) end
+local function send_enter()
+  return function() require('iron.core').send(nil, string.char(13)) end
+end
 
 return {
   {
@@ -40,11 +48,11 @@ return {
     end,
     keys = {
       { '<leader>ro', '<cmd>IronReplHere<cr>', desc = '[o]pen repl' },
-      { '<leader>r<cr>', send_enter, desc = 'send enter' },
-      { '<leader>r<space>', interrupt, desc = 'interrupt execution' },
+      { '<leader>r<cr>', send_enter(), desc = 'send enter' },
+      { '<leader>r<space>', interrupt(), desc = 'interrupt execution' },
       { '<leader>rr', '<cmd>IronRestart<cr>', desc = '[r]estart repl' },
-      { '<leader>rc', clear, desc = '[c]lear repl' },
-      { '<leader>rq', exit, desc = '[q]uit repl' },
+      { '<leader>rc', clear(), desc = '[c]lear repl' },
+      { '<leader>rq', exit(), desc = '[q]uit repl' },
     },
   },
   {

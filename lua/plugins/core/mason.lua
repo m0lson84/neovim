@@ -16,6 +16,7 @@ return {
     keys = { { '<leader>nm', '<cmd>Mason<cr>', desc = '[m]ason' } },
     config = function(_, opts)
       require('mason').setup(opts)
+
       local mr = require('mason-registry')
       mr:on('package:install:success', function()
         vim.defer_fn(

@@ -17,11 +17,13 @@ local file_types = {
 }
 
 --- Generate code annotations.
-local gen_docs = function()
-  require('neogen').generate({
-    type = 'any',
-    snippet_engine = 'nvim',
-  })
+local function gen_docs()
+  return function()
+    require('neogen').generate({
+      type = 'any',
+      snippet_engine = 'nvim',
+    })
+  end
 end
 
 return {
@@ -32,7 +34,7 @@ return {
       languages = {},
     },
     keys = {
-      { '<leader>cD', gen_docs, ft = file_types, desc = 'generate [d]ocs' },
+      { '<leader>cD', gen_docs(), ft = file_types, desc = 'generate [d]ocs' },
     },
   },
 }

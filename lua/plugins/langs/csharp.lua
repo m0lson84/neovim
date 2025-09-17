@@ -3,16 +3,23 @@ C# language support
 --]]
 
 --- Find all references handler
-local find_all_references = function() require('omnisharp_extended').lsp_references() end
+local function find_all_references()
+  return function() require('omnisharp_extended').lsp_references() end
+end
 
 --- Go to definition handler
-local goto_definition = function() require('omnisharp_extended').lsp_definitions() end
+local function goto_definition()
+  return function() require('omnisharp_extended').lsp_definitions() end
+end
 
 --- Go to implementation handler
-local goto_implementation = function() require('omnisharp_extended').lsp_implementation() end
-
+local function goto_implementation()
+  return function() require('omnisharp_extended').lsp_implementation() end
+end
 --- Go to type definition handler
-local goto_type_definition = function() require('omnisharp_extended').lsp_type_definition() end
+local function goto_type_definition()
+  return function() require('omnisharp_extended').lsp_type_definition() end
+end
 
 return {
 
@@ -30,10 +37,10 @@ return {
       servers = {
         omnisharp = {
           keys = {
-            { 'gd', goto_definition, desc = 'Goto Definition' },
-            { 'gi', goto_implementation, desc = 'Goto Implementation' },
-            { 'gr', find_all_references, desc = 'Find All References' },
-            { '<leader>D', goto_type_definition, desc = 'Goto Type Definition' },
+            { 'gd', goto_definition(), desc = 'Goto Definition' },
+            { 'gi', goto_implementation(), desc = 'Goto Implementation' },
+            { 'gr', find_all_references(), desc = 'Find All References' },
+            { '<leader>D', goto_type_definition(), desc = 'Goto Type Definition' },
           },
           settings = {
             FormattingOptions = {

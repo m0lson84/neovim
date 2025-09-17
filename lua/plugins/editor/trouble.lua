@@ -3,26 +3,28 @@ trouble.nvim (https://github.com/folke/trouble.nvim)
 --]]
 
 --- Move to the next Trouble/Quickfix item
-local next_item = function()
+local function next_item()
   return function()
     if require('trouble').is_open() then
       require('trouble').next({ skip_groups = true, jump = true })
-    else
-      local ok, err = pcall(vim.cmd.cnext)
-      if not ok then vim.notify(err, vim.log.levels.ERROR) end
+      return
     end
+
+    local ok, err = pcall(vim.cmd.cnext)
+    if not ok then vim.notify(err, vim.log.levels.ERROR) end
   end
 end
 
 --- Move to the previous Trouble/Quickfix item
-local previous_item = function()
+local function previous_item()
   return function()
     if require('trouble').is_open() then
       require('trouble').prev({ skip_groups = true, jump = true })
-    else
-      local ok, err = pcall(vim.cmd.cprev)
-      if not ok then vim.notify(err, vim.log.levels.ERROR) end
+      return
     end
+
+    local ok, err = pcall(vim.cmd.cprev)
+    if not ok then vim.notify(err, vim.log.levels.ERROR) end
   end
 end
 

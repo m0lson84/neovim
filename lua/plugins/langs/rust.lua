@@ -4,7 +4,7 @@ Rust language support
 
 --- Configure keymap for rust code actions
 ---@param bufnr boolean|integer The current buffer
-local code_actions = function(bufnr)
+local function code_actions(bufnr)
   vim.keymap.set(
     'n',
     '<leader>cA',
@@ -15,7 +15,7 @@ end
 
 --- Configure keymap for rust debuggables
 ---@param bufnr boolean|integer The current buffer
-local debuggables = function(bufnr)
+local function debuggables(bufnr)
   vim.keymap.set(
     'n',
     '<leader>dr',
@@ -25,7 +25,7 @@ local debuggables = function(bufnr)
 end
 
 --- Hover action for cargo.toml files
-local hover_action = function()
+local function hover_action()
   if vim.fn.expand('%:t') == 'Cargo.toml' and require('crates').popup_available() then
     require('crates').show_popup()
   else

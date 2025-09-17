@@ -3,11 +3,13 @@ Ruff (https://docs.astral.sh/ruff/)
 --]]
 
 --- Organize all imports
-local organize_imports = function()
-  vim.lsp.buf.code_action({
-    context = { only = { 'source.organizeImports' }, diagnostics = {} },
-    apply = true,
-  })
+local function organize_imports()
+  return function()
+    vim.lsp.buf.code_action({
+      context = { only = { 'source.organizeImports' }, diagnostics = {} },
+      apply = true,
+    })
+  end
 end
 
 return {
@@ -29,7 +31,7 @@ return {
             },
           },
           keys = {
-            { '<leader>co', organize_imports, desc = '[o]rganize imports' },
+            { '<leader>co', organize_imports(), desc = '[o]rganize imports' },
           },
         },
       },

@@ -3,9 +3,9 @@ mini.ai (https://github.com/nvim-mini/mini.nvim)
 --]]
 
 -- taken from MiniExtra.gen_ai_spec.buffer
-local ai_buffer = function(ai_type)
+local function ai_buffer(type)
   local start_line, end_line = 1, vim.fn.line('$')
-  if ai_type == 'i' then
+  if type == 'i' then
     -- Skip first and last blank lines for `i` textobject
     local first_nonblank, last_nonblank = vim.fn.nextnonblank(start_line), vim.fn.prevnonblank(end_line)
     -- Do nothing for buffer with all blanks
@@ -20,7 +20,7 @@ end
 -- Mini.ai indent text object
 -- For "a", it will include the non-whitespace line surrounding the indent block.
 -- "a" is line-wise, "i" is character-wise.
-local ai_indent = function(ai_type)
+local function ai_indent(type)
   local spaces = (' '):rep(vim.o.tabstop)
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   local indents = {} ---@type {line: number, indent: number, text: string}[]
@@ -40,11 +40,11 @@ local ai_indent = function(ai_type)
         if indents[j].indent < indents[i].indent then break end
         to = j
       end
-      from = ai_type == 'a' and from > 1 and from - 1 or from
-      to = ai_type == 'a' and to < #indents and to + 1 or to
+      from = type == 'a' and from > 1 and from - 1 or from
+      to = type == 'a' and to < #indents and to + 1 or to
       region[#region + 1] = {
         indent = indents[i].indent,
-        from = { line = indents[from].line, col = ai_type == 'a' and 1 or indents[from].indent + 1 },
+        from = { line = indents[from].line, col = type == 'a' and 1 or indents[from].indent + 1 },
         to = { line = indents[to].line, col = #indents[to].text },
       }
     end
