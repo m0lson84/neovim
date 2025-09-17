@@ -2,7 +2,7 @@
 Javascript / Typescript language support
 --]]
 
-local find_config = function(file_name)
+local function find_config(file_name)
   return function()
     local file = vim.fn.expand('%:p')
     if string.find(file, '/packages/') then return string.match(file, '(.-/[^/]+/)src') .. file_name end

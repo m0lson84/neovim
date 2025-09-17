@@ -2,32 +2,28 @@
 nvim-treesitter (https://github.com/nvim-treesitter/nvim-treesitter)
 --]]
 
+--- Show the list of installed language parsers.
+local function install_info()
+  return function()
+    local installed = require('nvim-treesitter').get_installed('parsers')
+    vim.notify_once('Installed parsers:\n\n' .. table.concat(installed, ', '))
+  end
+end
+
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     version = false,
-    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre', 'VeryLazy' },
+    lazy = false,
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs',
-    init = function(plugin)
-      require('lazy.core.loader').add_to_rtp(plugin)
-      require('nvim-treesitter.query_predicates')
-    end,
+    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre', 'VeryLazy' },
+    cmd = { 'TSUpdate', 'TSInstall', 'TSLog', 'TSUninstall' },
     opts_extend = { 'ensure_installed' },
     opts = {
-      auto_install = true,
-      indent = {
-        enable = true,
-        disable = { 'ruby' },
-      },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = true,
-      },
       ensure_installed = {
         'git_config',
         'gitignore',
-        'html',
         'kdl',
         'make',
         'query',
@@ -35,31 +31,69 @@ return {
         'vim',
         'vimdoc',
       },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = '<C-space>',
-          node_incremental = '<C-space>',
-          scope_incremental = false,
-          node_decremental = '<bs>',
-        },
-      },
-      textobjects = {
-        move = {
-          enable = true,
-          goto_next_start = { [']f'] = '@function.outer', [']c'] = '@class.outer', [']a'] = '@parameter.inner' },
-          goto_next_end = { [']F'] = '@function.outer', [']C'] = '@class.outer', [']A'] = '@parameter.inner' },
-          goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer', ['[a'] = '@parameter.inner' },
-          goto_previous_end = { ['[F'] = '@function.outer', ['[C'] = '@class.outer', ['[A'] = '@parameter.inner' },
-        },
-      },
     },
+    config = function(_, opts)
+      local ts = require('nvim-treesitter')
+      ts.setup(opts)
+
+      local install = vim.tbl_filter(
+        function(lang) return not utils.treesitter.have(lang) end,
+        opts.ensure_installed or {}
+      )
+      if #install > 0 then
+        ts.install(install, { summary = true }):await(function() utils.treesitter.get_installed(true) end)
+      end
+
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function(args)
+          if utils.treesitter.have(args.match) then pcall(vim.treesitter.start) end
+          vim.bo.indentexpr = 'v:lua.require\'nvim-treesitter\'.indentexpr()'
+        end,
+      })
+    end,
     keys = {
       { '<c-space>', desc = 'increment selection' },
       { '<bs>', desc = 'decrement selection', mode = 'x' },
-      { '<leader>it', '<cmd>TSInstallInfo<cr>', desc = '[t]reesitter' },
+      { '<leader>it', install_info(), desc = '[t]reesitter' },
     },
   },
+
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    event = 'VeryLazy',
+    opts = {},
+    keys = function()
+      local moves = {
+        goto_next_start = { [']f'] = '@function.outer', [']c'] = '@class.outer', [']a'] = '@parameter.inner' },
+        goto_next_end = { [']F'] = '@function.outer', [']C'] = '@class.outer', [']A'] = '@parameter.inner' },
+        goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer', ['[a'] = '@parameter.inner' },
+        goto_previous_end = { ['[F'] = '@function.outer', ['[C'] = '@class.outer', ['[A'] = '@parameter.inner' },
+      }
+      local ret = {} ---@type LazyKeysSpec[]
+      for method, keymaps in pairs(moves) do
+        for key, query in pairs(keymaps) do
+          local desc = query:gsub('@', ''):gsub('%..*', '')
+          desc = desc:sub(1, 1):upper() .. desc:sub(2)
+          desc = (key:sub(1, 1) == '[' and 'Prev ' or 'Next ') .. desc
+          desc = desc .. (key:sub(2, 2) == key:sub(2, 2):upper() and ' End' or ' Start')
+          ret[#ret + 1] = {
+            key,
+            function()
+              -- don't use treesitter if in diff mode and the key is one of the c/C keys
+              if vim.wo.diff and key:find('[cC]') then return vim.cmd('normal! ' .. key) end
+              require('nvim-treesitter-textobjects.move')[method](query, 'textobjects')
+            end,
+            desc = desc,
+            mode = { 'n', 'x', 'o' },
+            silent = true,
+          }
+        end
+      end
+      return ret
+    end,
+  },
+
   {
     'folke/which-key.nvim',
     opts = {

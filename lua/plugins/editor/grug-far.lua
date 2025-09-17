@@ -3,22 +3,26 @@ grug-far.nvim (https://github.com/MagicDuck/grug-far.nvim)
 --]]
 
 --- Search and replace
-local search_and_replace = function()
-  local ext = vim.bo.buftype == '' and vim.fn.expand('%:e')
-  require('grug-far').open({
-    prefills = {
-      filesFilter = ext and ext ~= '' and '*.' .. ext or nil,
-    },
-  })
+local function search_and_replace()
+  return function()
+    local ext = vim.bo.buftype == '' and vim.fn.expand('%:e')
+    require('grug-far').open({
+      prefills = {
+        filesFilter = ext and ext ~= '' and '*.' .. ext or nil,
+      },
+    })
+  end
 end
 
 --- Search within the current file
-local search_in_file = function()
-  require('grug-far').open({
-    prefills = {
-      paths = vim.fn.expand('%'),
-    },
-  })
+local function search_in_file()
+  return function()
+    require('grug-far').open({
+      prefills = {
+        paths = vim.fn.expand('%'),
+      },
+    })
+  end
 end
 
 return {
@@ -29,8 +33,8 @@ return {
       transient = true,
     },
     keys = {
-      { '<leader>sr', search_and_replace, mode = { 'n', 'v' }, desc = '[s]earch and [r]eplace' },
-      { '<leader>sR', search_in_file, mode = { 'n', 'v' }, desc = '[s]earch / [R]eplace in file' },
+      { '<leader>sr', search_and_replace(), mode = { 'n', 'v' }, desc = '[s]earch and [r]eplace' },
+      { '<leader>sR', search_in_file(), mode = { 'n', 'v' }, desc = '[s]earch / [R]eplace in file' },
     },
   },
 }

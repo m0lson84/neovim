@@ -3,34 +3,46 @@
 --]]
 
 ---Execute current request
-local execute_request = function() require('kulala').run() end
+local function execute_request()
+  return function() require('kulala').run() end
+end
 
 ---Jump to next request
-local jump_next = function() require('kulala').jump_next() end
+local function jump_next()
+  return function() require('kulala').jump_next() end
+end
 
 ---Jump to previous request
-local jump_previous = function() require('kulala').jump_prev() end
+local function jump_previous()
+  return function() require('kulala').jump_prev() end
+end
 
 ---Open a buffer with a temporary file for writing requests
-local open_scratchpad = function() require('kulala').scratchpad() end
+local function open_scratchpad()
+  return function() require('kulala').scratchpad() end
+end
 
 --- Select environment
-local select_env = function() require('kulala').set_selected_env() end
+local function select_env()
+  return function() require('kulala').set_selected_env() end
+end
 
 ---Toggle response view
-local toggle_view = function() require('kulala').toggle_view() end
+local function toggle_view()
+  return function() require('kulala').toggle_view() end
+end
 
 return {
   {
     'mistweaverco/kulala.nvim',
     opts = {},
     keys = {
-      { '<leader>hr', execute_request, ft = 'http', desc = 'execute [r]equest' },
-      { '<leader>hn', jump_next, ft = 'http', desc = 'jump to [n]ext request' },
-      { '<leader>hp', jump_previous, ft = 'http', desc = 'jump to [p]revious request' },
-      { '<leader>hv', toggle_view, ft = 'http', desc = 'toggle response [v]iew' },
-      { '<leader>he', select_env, ft = 'http', desc = 'set selected [e]nvironment' },
-      { '<leader>hs', open_scratchpad, desc = 'open [s]cratchpad' },
+      { '<leader>hr', execute_request(), ft = 'http', desc = 'execute [r]equest' },
+      { '<leader>hn', jump_next(), ft = 'http', desc = 'jump to [n]ext request' },
+      { '<leader>hp', jump_previous(), ft = 'http', desc = 'jump to [p]revious request' },
+      { '<leader>hv', toggle_view(), ft = 'http', desc = 'toggle response [v]iew' },
+      { '<leader>he', select_env(), ft = 'http', desc = 'set selected [e]nvironment' },
+      { '<leader>hs', open_scratchpad(), desc = 'open [s]cratchpad' },
     },
   },
   {

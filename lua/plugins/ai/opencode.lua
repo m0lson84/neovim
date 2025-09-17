@@ -4,22 +4,22 @@ opencode.nvim (https://github.com/NickvanDyke/opencode.nvim)
 
 --- Input a prompt to send to opencode
 ---@param default? string Text to prefill the input with.
-local input_prompt = function(default)
+local function input_prompt(default)
   return function() require('opencode').ask(default) end
 end
 
 --- Create a new session
-local new_session = function()
+local function new_session()
   return function() require('opencode').command('session_new') end
 end
 
 --- Select prompt to send to opencode
-local select_prompt = function()
+local function select_prompt()
   return function() require('opencode').select() end
 end
 
 --- Toggle embedded opencode TUI
-local toggle_panel = function()
+local function toggle_panel()
   return function() require('opencode').toggle() end
 end
 

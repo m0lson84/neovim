@@ -3,10 +3,14 @@ conform.nvim (https://github.com/stevearc/conform.nvim)
 --]]
 
 -- Format the current buffer
-local format_buffer = function() require('conform').format({ async = true }) end
+local function format_buffer()
+  return function() require('conform').format({ async = true }) end
+end
 
 -- Format injected languages in current buffer
-local format_injected = function() require('conform').format({ formatters = { 'injected' } }) end
+local function format_injected()
+  return function() require('conform').format({ formatters = { 'injected' } }) end
+end
 
 return {
   {
@@ -30,8 +34,8 @@ return {
       format_on_save = { timeout_ms = 3000 },
     },
     keys = {
-      { '<leader>cf', format_buffer, mode = { 'n', 'v' }, desc = '[f]ormat buffer' },
-      { '<leader>cF', format_injected, mode = { 'n', 'v' }, desc = '[F]ormat injected langs' },
+      { '<leader>cf', format_buffer(), mode = { 'n', 'v' }, desc = '[f]ormat buffer' },
+      { '<leader>cF', format_injected(), mode = { 'n', 'v' }, desc = '[F]ormat injected langs' },
       { '<leader>ic', '<cmd>ConformInfo<cr>', desc = '[c]onform' },
     },
   },
