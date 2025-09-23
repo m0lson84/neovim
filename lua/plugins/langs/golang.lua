@@ -110,12 +110,14 @@ return {
   -- Configure test runner
   {
     'nvim-neotest/neotest',
-    dependencies = { 'fredrikaverpil/neotest-golang' },
+    dependencies = {
+      'fredrikaverpil/neotest-golang',
+      version = '*',
+    },
     opts = {
       adapters = {
         ['neotest-golang'] = {
-          dap_go_enabled = true,
-          warn_test_not_executed = false,
+          runner = 'gotestsum',
         },
       },
     },
