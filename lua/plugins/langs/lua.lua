@@ -7,7 +7,9 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'lua', 'luadoc', 'luap' } },
+    opts = {
+      ensure_installed = { 'lua', 'luadoc', 'luap' },
+    },
   },
 
   -- Configure language server

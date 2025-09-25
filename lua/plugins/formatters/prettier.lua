@@ -11,13 +11,13 @@ return {
   },
   {
     'stevearc/conform.nvim',
-    dependencies = { 'mason-org/mason.nvim' },
-    opts = function(_, opts)
-      opts.formatters_by_ft = utils.table.extend_keys(
-        opts.formatters_by_ft,
-        { 'graphql', 'handlebars', 'less', 'vue' },
-        { 'prettierd' }
-      )
-    end,
+    opts = {
+      formatters_by_ft = {
+        graphql = { 'prettierd' },
+        handlebars = { 'prettierd' },
+        less = { 'prettierd' },
+        vue = { 'prettierd' },
+      },
+    },
   },
 }

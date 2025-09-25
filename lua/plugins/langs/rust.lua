@@ -38,7 +38,9 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'ron', 'rust' } },
+    opts = {
+      ensure_installed = { 'ron', 'rust' },
+    },
   },
 
   -- Configure language plugin
@@ -116,7 +118,11 @@ return {
     'danymat/neogen',
     opts = {
       languages = {
-        rust = { template = { annotation_convention = 'rustdoc' } },
+        rust = {
+          template = {
+            annotation_convention = 'rustdoc',
+          },
+        },
       },
     },
   },

@@ -7,7 +7,9 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'go', 'gomod', 'gosum', 'gotmpl', 'gowork' } },
+    opts = {
+      ensure_installed = { 'go', 'gomod', 'gosum', 'gotmpl', 'gowork' },
+    },
   },
 
   -- Configure language server
@@ -95,10 +97,16 @@ return {
 
   -- Configure debug adapter
   {
+    'mason-org/mason.nvim',
+    opts = {
+      ensure_installed = { 'delve' },
+    },
+  },
+  {
     'mfussenegger/nvim-dap',
     dependencies = {
-      { 'mason-org/mason.nvim', opts = { ensure_installed = { 'delve' } } },
-      { 'leoluz/nvim-dap-go', opts = {} },
+      'mason-org/mason.nvim',
+      'leoluz/nvim-dap-go',
     },
     opts = function()
       local vscode = require('dap.ext.vscode')

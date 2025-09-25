@@ -6,7 +6,9 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed or {}, { 'fish' }) end,
+    opts = {
+      ensure_installed = { 'fish' },
+    },
   },
 
   -- Configure language server

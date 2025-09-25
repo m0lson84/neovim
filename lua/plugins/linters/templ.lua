@@ -11,7 +11,6 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
-    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       servers = {
         templ = {
@@ -24,7 +23,6 @@ return {
   },
   {
     'stevearc/conform.nvim',
-    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       formatters = {
         templ = {},

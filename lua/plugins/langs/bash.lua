@@ -44,13 +44,14 @@ return {
   -- Configure formatting
   {
     'stevearc/conform.nvim',
-    opts = function(_, opts)
-      opts.formatters_by_ft = utils.table.extend_keys(
-        opts.formatters_by_ft,
-        { 'bash', 'dotenv', 'sh', 'zsh' },
-        { 'shfmt' }
-      )
-    end,
+    opts = {
+      formatters_by_ft = {
+        bash = { 'shfmt' },
+        dotenv = { 'shfmt' },
+        sh = { 'shfmt' },
+        zsh = { 'shfmt' },
+      },
+    },
   },
 
   -- Code annotations and documentation
@@ -58,7 +59,11 @@ return {
     'danymat/neogen',
     opts = {
       languages = {
-        sh = { template = { annotation_convention = 'google_bash' } },
+        sh = {
+          template = {
+            annotation_convention = 'google_bash',
+          },
+        },
       },
     },
   },

@@ -7,7 +7,9 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'proto' } },
+    opts = {
+      ensure_installed = { 'proto' },
+    },
   },
 
   -- Configure linters

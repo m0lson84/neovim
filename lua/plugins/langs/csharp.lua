@@ -26,11 +26,16 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'c_sharp' } },
+    opts = {
+      ensure_installed = { 'c_sharp' },
+    },
   },
 
   -- Configure language server
-  { 'Hoffs/omnisharp-extended-lsp.nvim', lazy = true },
+  {
+    'Hoffs/omnisharp-extended-lsp.nvim',
+    lazy = true,
+  },
   {
     'neovim/nvim-lspconfig',
     opts = {
@@ -69,10 +74,14 @@ return {
 
   -- Configure debug adapter
   {
-    'mfussenegger/nvim-dap',
-    dependencies = {
-      { 'mason-org/mason.nvim', opts = { ensure_installed = { 'netcoredbg' } } },
+    'mason-org/mason.nvim',
+    opts = {
+      ensure_installed = { 'netcoredbg' },
     },
+  },
+  {
+    'mfussenegger/nvim-dap',
+    dependencies = { 'mason-org/mason.nvim' },
     opts = function(_, opts)
       local dap = require('dap')
       if not dap.adapters['netcoredbg'] then
@@ -119,7 +128,11 @@ return {
     'danymat/neogen',
     opts = {
       languages = {
-        cs = { template = { annotation_convention = 'xmldoc' } },
+        cs = {
+          template = {
+            annotation_convention = 'xmldoc',
+          },
+        },
       },
     },
   },
