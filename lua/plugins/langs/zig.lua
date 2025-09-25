@@ -7,7 +7,9 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'zig' } },
+    opts = {
+      ensure_installed = { 'zig' },
+    },
   },
 
   -- Configure language server
@@ -38,9 +40,7 @@ return {
   -- Configure test runner
   {
     'nvim-neotest/neotest',
-    dependencies = {
-      'lawrence-laz/neotest-zig',
-    },
+    dependencies = { 'lawrence-laz/neotest-zig' },
     opts = {
       adapters = {
         ['neotest-zig'] = {

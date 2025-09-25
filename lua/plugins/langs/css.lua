@@ -7,7 +7,9 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'css', 'scss' } },
+    opts = {
+      ensure_installed = { 'css', 'scss' },
+    },
   },
 
   -- Configure language server

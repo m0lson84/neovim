@@ -7,7 +7,9 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'ninja', 'python', 'rst' } },
+    opts = {
+      ensure_installed = { 'ninja', 'python', 'rst' },
+    },
   },
 
   -- Configure language server
@@ -70,7 +72,11 @@ return {
     'danymat/neogen',
     opts = {
       languages = {
-        python = { template = { annotation_convention = 'google_docstrings' } },
+        python = {
+          template = {
+            annotation_convention = 'google_docstrings',
+          },
+        },
       },
     },
   },

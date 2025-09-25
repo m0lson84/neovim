@@ -12,7 +12,6 @@ return {
   },
   {
     'mfussenegger/nvim-lint',
-    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       linters = {
         ['markdownlint-cli2'] = {

@@ -2,6 +2,9 @@
 Javascript / Typescript language support
 --]]
 
+--- Get the full path to the desired configuration file.
+---@param file_name string The name of the configuration to find.
+---@return function resolver The function for resolving the desired config.
 local function find_config(file_name)
   return function()
     local file = vim.fn.expand('%:p')
@@ -10,12 +13,20 @@ local function find_config(file_name)
   end
 end
 
+--- Register the correct formatter for the current buffer
+---@return function resolver The function for resolving the correct formatter to use.
+local function register_formatter()
+  return function(bufnr) return { utils.format.get(bufnr, 'biome-check', 'prettierd') } end
+end
+
 return {
 
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'javascript', 'typescript', 'tsx' } },
+    opts = {
+      ensure_installed = { 'javascript', 'typescript', 'tsx' },
+    },
   },
 
   -- Configure language server
@@ -70,10 +81,10 @@ return {
     'stevearc/conform.nvim',
     opts = {
       formatters_by_ft = {
-        javascript = function(bufnr) return { utils.format.get(bufnr, 'biome-check', 'prettierd') } end,
-        javascriptreact = function(bufnr) return { utils.format.get(bufnr, 'biome-check', 'prettierd') } end,
-        typescript = function(bufnr) return { utils.format.get(bufnr, 'biome-check', 'prettierd') } end,
-        typescriptreact = function(bufnr) return { utils.format.get(bufnr, 'biome-check', 'prettierd') } end,
+        javascript = register_formatter(),
+        javascriptreact = register_formatter(),
+        typescript = register_formatter(),
+        typescriptreact = register_formatter(),
       },
     },
   },

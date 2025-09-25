@@ -7,7 +7,9 @@ return {
   -- Add languages to treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    opts = { ensure_installed = { 'json', 'json5', 'jsonc' } },
+    opts = {
+      ensure_installed = { 'json', 'json5', 'jsonc' },
+    },
   },
 
   -- Schema store support

@@ -5,7 +5,6 @@ erb-formatter (https://github.com/nebulab/erb-formatter)
 return {
   {
     'stevearc/conform.nvim',
-    dependencies = { 'mason-org/mason.nvim' },
     opts = {
       formatters = {
         erb_format = {

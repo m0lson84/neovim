@@ -1,19 +1,19 @@
 --[[
-hadolint (https://github.com/hadolint/hadolint)
+dotenv-linter (https://dotenv-linter.github.io/)
 --]]
 
 return {
   {
     'mason-org/mason.nvim',
     opts = {
-      ensure_installed = { 'hadolint' },
+      ensure_installed = { 'dotenv-linter' },
     },
   },
   {
     'mfussenegger/nvim-lint',
     opts = {
       linters = {
-        hadolint = {},
+        dotenv_linter = {},
       },
     },
   },
