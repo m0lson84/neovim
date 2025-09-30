@@ -4,18 +4,29 @@ copilot.lua (https://github.com/zbirenbaum/copilot.lua)
 
 return {
   {
+    'neovim/nvim-lspconfig',
+    opts = {
+      servers = {
+        copilot = {},
+      },
+    },
+  },
+
+  {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
     event = 'InsertEnter',
     opts = {
       suggestion = { enabled = false },
       panel = { enabled = false },
+      nes = { enabled = false },
       filetypes = {
         markdown = true,
         help = true,
       },
     },
   },
+
   {
     'saghen/blink.cmp',
     dependencies = {
@@ -35,6 +46,7 @@ return {
       },
     },
   },
+
   {
     'AndreM222/copilot-lualine',
   },
