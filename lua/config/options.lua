@@ -209,19 +209,15 @@ vim.filetype.add({
   extension = {
     ['code-workspace'] = 'jsonc',
     conf = 'conf',
-    env = 'dotenv',
     http = 'http',
     rest = 'http',
     tmpl = 'gotmpl',
   },
-  filename = {
-    ['.env'] = 'dotenv',
-    ['devcontainer.json'] = 'jsonc',
-  },
   pattern = {
-    ['%.env%.[%w_.-]+'] = 'dotenv',
+    ['.*%.?env%.?.*'] = 'dotenv',
     ['compose.*%.ya?ml'] = 'yaml.docker-compose',
     ['docker-compose.*%.ya?ml'] = 'yaml.docker-compose',
+    ['.*/.devcontainer/.*%.json'] = 'jsonc',
     ['.*/.vscode/.*%.json'] = 'jsonc',
   },
 })
