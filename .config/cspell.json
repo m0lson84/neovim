@@ -1,0 +1,7 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "dictionaries": ["nvim"],
+  "dictionaryDefinitions": [{ "name": "nvim", "path": "./nvim.txt" }],
+  "words": ["lazygit", "markdownlint", "opencode", "sqlfluff", "typst"]
+}
