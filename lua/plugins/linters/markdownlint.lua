@@ -15,7 +15,7 @@ return {
     opts = {
       linters = {
         ['markdownlint-cli2'] = {
-          args = { '--config', vim.fn.expand('~/.config/nvim/config/.markdownlint.json') },
+          args = { '--config', vim.fn.expand('~/.config/nvim/.config/markdownlint.json') },
         },
       },
     },

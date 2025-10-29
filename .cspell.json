@@ -1,7 +1,0 @@
-{
-  "version": "0.2",
-  "language": "en",
-  "dictionaries": ["nvim"],
-  "dictionaryDefinitions": [{ "name": "nvim", "path": "./.cspell/nvim.txt" }],
-  "words": ["lazygit", "markdownlint", "sqlfluff"]
-}
