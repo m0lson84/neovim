@@ -13,7 +13,5 @@ keymap
 keymaps
 lspconfig
 nvim
-opencode
 statuscolumn
 strcharpart
-typst
