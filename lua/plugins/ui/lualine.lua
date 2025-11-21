@@ -29,7 +29,6 @@ return {
         sections = {
           lualine_a = { 'mode' },
           lualine_b = { 'branch' },
-
           lualine_c = {
             {
               'diagnostics',
@@ -52,20 +51,6 @@ return {
               function() return require('noice').api.status.command.get() end,
               cond = function() return package.loaded['noice'] and require('noice').api.status.command.has() end,
               color = function() return utils.ui.fg('Statement') end,
-            },
-            {
-              'copilot',
-              show_colors = true,
-              show_loading = true,
-              symbols = {
-                status = {
-                  hl = {
-                    enabled = utils.ui.color('DiagnosticInfo'),
-                    warning = utils.ui.color('DiagnosticError'),
-                    unknown = utils.ui.color('DiagnosticWarning'),
-                  },
-                },
-              },
             },
             {
               function() return require('noice').api.status.mode.get() end,

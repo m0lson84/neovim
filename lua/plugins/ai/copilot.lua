@@ -9,29 +9,26 @@ return {
       servers = {
         copilot = {},
       },
-    },
-  },
-
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    opts = {
-      suggestion = { enabled = false },
-      panel = { enabled = false },
-      nes = { enabled = false },
-      filetypes = {
-        markdown = true,
-        help = true,
+      setup = {
+        copilot = function()
+          vim.lsp.config('copilot', {
+            handlers = {
+              didChangeStatus = function(err, res, _)
+                if err then return end
+                if res.status == 'Error' then
+                  vim.notify('Please use `:LspCopilotSignIn` to sign into Copilot', vim.log.levels.ERROR)
+                end
+              end,
+            },
+          })
+        end,
       },
     },
   },
 
   {
     'saghen/blink.cmp',
-    dependencies = {
-      { 'fang2hou/blink-copilot' },
-    },
+    dependencies = { 'fang2hou/blink-copilot' },
     opts = {
       sources = {
         default = { 'copilot' },
@@ -39,15 +36,10 @@ return {
           copilot = {
             name = 'copilot',
             module = 'blink-copilot',
-            score_offset = 100,
             async = true,
           },
         },
       },
     },
-  },
-
-  {
-    'AndreM222/copilot-lualine',
   },
 }
