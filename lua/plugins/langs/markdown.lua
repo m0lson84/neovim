@@ -43,6 +43,28 @@ return {
     },
   },
 
+  -- Markdown rendering
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-mini/mini.icons' },
+    ft = { 'markdown', 'norg', 'rmd', 'org' },
+    opts = {
+      file_types = { 'markdown', 'norg', 'rmd', 'org' },
+      heading = { enabled = false },
+      latex = { enabled = false },
+      code = {
+        sign = false,
+        width = 'block',
+        right_pad = 1,
+      },
+      completions = {
+        lsp = {
+          enabled = true,
+        },
+      },
+    },
+  },
+
   -- Document preview
   {
     'jannis-baum/vivify.vim',
@@ -64,36 +86,6 @@ return {
     },
     keys = {
       { '<leader>mg', '<cmd>GithubPreviewToggle<cr>', ft = 'markdown', desc = '[g]ithub preview' },
-    },
-  },
-
-  -- Markdown rendering
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-mini/mini.icons' },
-    ft = { 'markdown', 'norg', 'rmd', 'org' },
-    opts = {
-      file_types = { 'markdown', 'norg', 'rmd', 'org' },
-      heading = { enabled = false },
-      code = {
-        sign = false,
-        width = 'block',
-        right_pad = 1,
-      },
-    },
-  },
-  {
-    'saghen/blink.cmp',
-    opts = {
-      sources = {
-        providers = {
-          markdown = {
-            name = 'RenderMarkdown',
-            module = 'render-markdown.integ.blink',
-            fallbacks = { 'lsp' },
-          },
-        },
-      },
     },
   },
 
