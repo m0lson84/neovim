@@ -4,13 +4,13 @@ opencode.nvim (https://github.com/NickvanDyke/opencode.nvim)
 
 --- Input a prompt to send to opencode
 ---@param default? string Text to prefill the input with.
-local function input_prompt(default)
+local function ask_prompt(default)
   return function() require('opencode').ask(default) end
 end
 
 --- Create a new session
 local function new_session()
-  return function() require('opencode').command('session_new') end
+  return function() require('opencode').command('session.new') end
 end
 
 --- Select prompt to send to opencode
@@ -27,11 +27,15 @@ return {
   {
     'NickvanDyke/opencode.nvim',
     dependencies = { 'folke/snacks.nvim' },
-    opts = {},
+    opts = {
+      provider = {
+        enabled = 'snacks',
+      },
+    },
     config = function(_, opts) vim.g.opencode_opts = opts or {} end,
     keys = {
-      { '<leader>aa', input_prompt(), mode = { 'n' }, desc = '[a]sk opencode' },
-      { '<leader>aa', input_prompt('@selection: '), mode = { 'v' }, desc = '[a]sk selection' },
+      { '<leader>aa', ask_prompt('@buffer '), mode = { 'n' }, desc = '[a]sk opencode' },
+      { '<leader>aa', ask_prompt('@this: '), mode = { 'v' }, desc = '[a]sk selection' },
       { '<leader>ap', select_prompt(), mode = { 'n', 'v' }, desc = 'select [p]rompt' },
       { '<leader>as', new_session(), desc = 'new [s]ession' },
       { '<leader>at', toggle_panel(), desc = '[t]oggle opencode' },
