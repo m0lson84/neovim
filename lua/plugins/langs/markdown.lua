@@ -72,29 +72,8 @@ return {
       filetypes = { 'vimwiki' },
     },
     keys = {
-      { '<leader>m', '', ft = 'markdown', desc = '[m]arkdown' },
-      { '<leader>mp', '<cmd>Vivify<cr>', ft = 'markdown', desc = '[p]review' },
+      { '<leader>cp', '<cmd>Vivify<cr>', ft = 'markdown', desc = '[p]review doc' },
     },
     config = function(_, opts) vim.g.vivify_filetypes = opts.filetypes or {} end,
-  },
-  {
-    'wallpants/github-preview.nvim',
-    opts = {
-      theme = { name = 'dark' },
-      cursor_line = { disable = true },
-      log_level = 'debug',
-    },
-    keys = {
-      { '<leader>mg', '<cmd>GithubPreviewToggle<cr>', ft = 'markdown', desc = '[g]ithub preview' },
-    },
-  },
-
-  {
-    'folke/which-key.nvim',
-    opts = {
-      spec = {
-        { '<leader>m', group = '[m]arkdown', icon = { icon = '', color = 'grey' } },
-      },
-    },
   },
 }

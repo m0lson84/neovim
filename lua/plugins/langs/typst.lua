@@ -35,8 +35,15 @@ return {
   -- Document preview
   {
     'chomosuke/typst-preview.nvim',
-    ft = 'typst',
+    lazy = false,
     version = '1.*',
-    opts = {},
+    opts = {
+      dependencies_bin = {
+        tinymist = 'tinymist',
+      },
+    },
+    keys = {
+      { '<leader>cp', '<cmd>TypstPreview<cr>', ft = 'typst', desc = '[p]review doc' },
+    },
   },
 }
