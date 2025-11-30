@@ -31,7 +31,7 @@ return {
       return opts
     end,
     keys = {
-      { '<leader><leader>', pick('files'), desc = '[ ] search files' },
+      { '<leader><leader>', pick('files'), desc = 'search files' },
       { '<leader>sb', pick('buffers'), desc = '[b]uffers' },
       { '<leader>sd', pick('diagnostics'), desc = '[d]iagnostics' },
       { '<leader>sf', pick('files'), desc = '[f]iles' },
