@@ -16,12 +16,8 @@ return {
   {
     'neovim/nvim-lspconfig',
     opts = {
-      settings = {
-        basedpyright = { disableOrganizeImports = true },
-        python = { analysis = { ignore = { '*' } } },
-      },
       servers = {
-        basedpyright = {},
+        ty = {},
       },
     },
   },
