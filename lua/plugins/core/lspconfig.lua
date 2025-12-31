@@ -168,7 +168,7 @@ return {
       })
     end,
     keys = {
-      { '<leader>il', '<cmd>LspInfo<cr>', desc = '[l]sp' },
+      { '<leader>il', '<cmd>checkhealth vim.lsp<cr>', desc = '[l]sp' },
     },
   },
 }
