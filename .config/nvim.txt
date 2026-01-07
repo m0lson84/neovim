@@ -9,9 +9,12 @@ bufremove
 deepcopy
 filereadable
 findbuf
+indentexpr
 keymap
 keymaps
 lspconfig
 nvim
 statuscolumn
 strcharpart
+textobjects
+vimdoc

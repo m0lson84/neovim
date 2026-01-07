@@ -13,14 +13,13 @@ end
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
     branch = 'main',
     version = false,
     lazy = false,
-    build = ':TSUpdate',
-    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre', 'VeryLazy' },
-    cmd = { 'TSUpdate', 'TSInstall', 'TSLog', 'TSUninstall' },
     opts_extend = { 'ensure_installed' },
     opts = {
+      auto_install = true,
       ensure_installed = {
         'git_config',
         'gitignore',
@@ -35,14 +34,6 @@ return {
     config = function(_, opts)
       local ts = require('nvim-treesitter')
       ts.setup(opts)
-
-      local install = vim.tbl_filter(
-        function(lang) return not utils.treesitter.have(lang) end,
-        opts.ensure_installed or {}
-      )
-      if #install > 0 then
-        ts.install(install, { summary = true }):await(function() utils.treesitter.get_installed(true) end)
-      end
 
       vim.api.nvim_create_autocmd('FileType', {
         callback = function(args)
@@ -70,7 +61,7 @@ return {
         goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer', ['[a'] = '@parameter.inner' },
         goto_previous_end = { ['[F'] = '@function.outer', ['[C'] = '@class.outer', ['[A'] = '@parameter.inner' },
       }
-      local ret = {} ---@type LazyKeysSpec[]
+      local ret = {}
       for method, keymaps in pairs(moves) do
         for key, query in pairs(keymaps) do
           local desc = query:gsub('@', ''):gsub('%..*', '')
