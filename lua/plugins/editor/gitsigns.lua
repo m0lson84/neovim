@@ -67,7 +67,7 @@ return {
         map('n', '<leader>ghs', gs.stage_hunk, { desc = '[s]tage' })
         map('n', '<leader>ghr', gs.reset_hunk, { desc = '[r]eset' })
         map('n', '<leader>ghS', gs.stage_buffer, { desc = '[S]tage buffer' })
-        map('n', '<leader>ghu', gs.undo_stage_hunk, { desc = '[u]ndo stage' })
+        map('n', '<leader>ghu', gs.stage_hunk, { desc = '[u]ndo stage' })
         map('n', '<leader>ghR', gs.reset_buffer, { desc = '[R]eset buffer' })
         map('n', '<leader>ghp', gs.preview_hunk, { desc = '[p]review hunk' })
         map('n', '<leader>ghb', gs.blame_line, { desc = '[b]lame line' })
