@@ -2,6 +2,7 @@
 
 root = true
 
+# General
 [*]
 charset = utf-8
 end_of_line = lf
@@ -11,5 +12,23 @@ indent_size = 2
 max_line_length = 120
 trim_trailing_whitespace = true
 
-[*.{bash,sh,zsh}]
+# Lua
+[*.lua]
+indent_size = 2
 max_line_length = 100
+
+# Shell
+[*.{bash,sh,zsh}]
+indent_size = 2
+max_line_length = 100
+
+# Configuration
+[*.{json,toml,y{a,}ml}]
+indent_style = space
+indent_size = 2
+
+# Documentation
+[*.{md,Rmd,rst}]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false
