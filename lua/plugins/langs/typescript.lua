@@ -31,49 +31,12 @@ return {
 
   -- Configure language server
   {
-    'yioneko/nvim-vtsls',
-    lazy = true,
-    opts = {},
-    config = function(_, opts) require('vtsls').config(opts) end,
-  },
-  {
     'neovim/nvim-lspconfig',
-    opts = function(_, opts)
-      local vtsls = require('vtsls')
-      local lang = {
-        updateImportsOnFileMove = {
-          enabled = 'always',
-        },
-        suggest = {
-          completeFunctionCalls = true,
-          includeCompletionsForImportStatements = true,
-        },
-      }
-      opts.servers.vtsls = {
-        settings = {
-          complete_function_calls = true,
-          vtsls = {
-            autoUseWorkspaceTsdk = true,
-            enableMoveToFileCodeAction = true,
-            experimental = {
-              completion = {
-                enableServerSideFuzzyMatch = true,
-              },
-            },
-          },
-          javascript = lang,
-          typescript = lang,
-        },
-        keys = {
-          { 'gD', function() vtsls.commands.goto_source_definition(0) end, desc = 'goto source [D]efinition' },
-          { 'gR', function() vtsls.commands.file_references(0) end, desc = 'file [R]eferences' },
-          { '<leader>cD', function() vtsls.commands.fix_all(0) end, desc = 'fix all [D]iagnostics' },
-          { '<leader>cM', function() vtsls.commands.add_missing_imports(0) end, desc = 'add [M]issing imports' },
-          { '<leader>co', function() vtsls.commands.organize_imports(0) end, desc = '[o]rganize imports' },
-        },
-      }
-      return opts
-    end,
+    opts = {
+      servers = {
+        tsgo = {},
+      },
+    },
   },
 
   -- Configure formatters
