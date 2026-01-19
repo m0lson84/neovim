@@ -18,7 +18,7 @@ return {
     opts = {
       servers = {
         html = {},
-        tailwindcss = {},
+        templ = {},
       },
     },
   },
