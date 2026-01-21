@@ -4,16 +4,10 @@ Buf (https://buf.build/)
 
 return {
   {
-    'mason-org/mason.nvim',
+    'neovim/nvim-lspconfig',
     opts = {
-      ensure_installed = { 'buf' },
-    },
-  },
-  {
-    'mfussenegger/nvim-lint',
-    opts = {
-      linters = {
-        buf_lint = {},
+      servers = {
+        buf_ls = {},
       },
     },
   },
