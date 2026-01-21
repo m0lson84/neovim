@@ -16,10 +16,7 @@ return {
   {
     'folke/noice.nvim',
     event = 'VeryLazy',
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
-    },
+    dependencies = { 'MunifTanjim/nui.nvim' },
     opts = {
       lsp = {
         override = {
@@ -51,14 +48,14 @@ return {
     -- stylua: ignore
     keys = {
       { '<leader>sn', '', desc = '[n]oice'},
-      { '<S-Enter>', function() require('noice').redirect(vim.fn.getcmdline()) end, mode = '', desc = 'Redirect Cmdline' },
-      { '<leader>snl', function() require('noice').cmd('last') end, desc = '[l]ast Message' },
-      { '<leader>snh', function() require('noice').cmd('history') end, desc = '[h]istory' },
+      { '<S-Enter>', function() require('noice').redirect(vim.fn.getcmdline()) end, mode = '', desc = 'redirect cmdline' },
       { '<leader>sna', function() require('noice').cmd('all') end, desc = '[a]ll messages' },
       { '<leader>snd', function() require('noice').cmd('dismiss') end, desc = '[d]ismiss all' },
-      { '<leader>snt', function() require('noice').cmd('pick') end, desc = 'search [t]elescope' },
-      { '<c-f>', scroll_forward, silent = true, expr = true, desc = 'scroll forward', mode = {'i', 'n', 's'} },
-      { '<c-b>', scroll_backward, silent = true, expr = true, desc = 'scroll backward', mode = {'i', 'n', 's'}},
+      { '<leader>snh', function() require('noice').cmd('history') end, desc = '[h]istory' },
+      { '<leader>snl', function() require('noice').cmd('last') end, desc = '[l]ast Message' },
+      { '<leader>sns', function() require('noice').cmd('pick') end, desc = '[s]earch' },
+      { '<c-f>', scroll_forward, mode = {'i', 'n', 's'}, silent = true, expr = true, desc = 'scroll forward'},
+      { '<c-b>', scroll_backward, mode = {'i', 'n', 's'}, silent = true, expr = true, desc = 'scroll backward'},
     },
     config = function(_, opts)
       if vim.o.filetype == 'lazy' then vim.cmd([[messages clear]]) end
