@@ -19,7 +19,6 @@ return {
     lazy = false,
     opts_extend = { 'ensure_installed' },
     opts = {
-      auto_install = true,
       ensure_installed = {
         'git_config',
         'gitignore',
@@ -34,6 +33,7 @@ return {
     config = function(_, opts)
       local ts = require('nvim-treesitter')
       ts.setup(opts)
+      ts.install(opts.ensure_installed)
 
       vim.api.nvim_create_autocmd('FileType', {
         callback = function(args)
