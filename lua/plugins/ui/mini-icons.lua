@@ -7,6 +7,9 @@ return {
     'nvim-mini/mini.icons',
     lazy = true,
     opts = {
+      directory = {
+        notebooks = { glyph = '󱧶', hl = 'MiniIconsBlue' },
+      },
       extension = {
         ['code-workspace'] = { glyph = '󰨞', hl = 'MiniIconsBlue' },
         kdl = { glyph = '', hl = 'MiniIconsYellow' },
