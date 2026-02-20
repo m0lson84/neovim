@@ -18,6 +18,11 @@ local function select_prompt()
   return function() require('opencode').select() end
 end
 
+--- Attach to a running opencode server
+local function select_server()
+  return function() require('opencode').select_server() end
+end
+
 --- Toggle embedded opencode TUI
 local function toggle_panel()
   return function() require('opencode').toggle() end
@@ -25,19 +30,19 @@ end
 
 return {
   {
-    'NickvanDyke/opencode.nvim',
+    'nickjvandyke/opencode.nvim',
     dependencies = { 'folke/snacks.nvim' },
-    opts = {
-      provider = {
-        enabled = 'snacks',
-      },
-    },
-    config = function(_, opts) vim.g.opencode_opts = opts or {} end,
+    opts = {},
+    config = function(_, opts)
+      vim.g.opencode_opts = opts or {}
+      vim.o.autoread = true
+    end,
     keys = {
       { '<leader>aa', ask_prompt('@buffer '), mode = { 'n' }, desc = '[a]sk opencode' },
       { '<leader>aa', ask_prompt('@this: '), mode = { 'v' }, desc = '[a]sk selection' },
       { '<leader>ap', select_prompt(), mode = { 'n', 'v' }, desc = 'select [p]rompt' },
-      { '<leader>as', new_session(), desc = 'new [s]ession' },
+      { '<leader>an', new_session(), desc = '[n]ew session' },
+      { '<leader>as', select_server(), desc = '[s]elect server' },
       { '<leader>at', toggle_panel(), desc = '[t]oggle opencode' },
     },
   },
