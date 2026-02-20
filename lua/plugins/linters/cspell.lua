@@ -7,7 +7,7 @@ return {
     'neovim/nvim-lspconfig',
     opts = {
       servers = {
-        cspell_lsp = {},
+        cspell_ls = {},
       },
     },
   },
