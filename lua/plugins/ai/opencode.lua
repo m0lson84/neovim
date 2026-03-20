@@ -23,11 +23,6 @@ local function select_server()
   return function() require('opencode').select_server() end
 end
 
---- Toggle embedded opencode TUI
-local function toggle_panel()
-  return function() require('opencode').toggle() end
-end
-
 return {
   {
     'nickjvandyke/opencode.nvim',
@@ -43,7 +38,6 @@ return {
       { '<leader>ap', select_prompt(), mode = { 'n', 'v' }, desc = 'select [p]rompt' },
       { '<leader>an', new_session(), desc = '[n]ew session' },
       { '<leader>as', select_server(), desc = '[s]elect server' },
-      { '<leader>at', toggle_panel(), desc = '[t]oggle opencode' },
     },
   },
 }

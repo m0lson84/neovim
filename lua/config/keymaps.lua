@@ -124,43 +124,30 @@ vim.keymap.set('n', '[w', diagnostic_goto(false, vim.diagnostic.WARN), { desc = 
 
 -- [[ lazygit ]]
 
---- open lazygit in a terminal window.
----@param cwd ?string the current working directory.
-local lazygit = function(cwd) Snacks.lazygit({ cwd = cwd }) end
-
-vim.keymap.set('n', '<leader>gg', function() lazygit(utils.root()) end, { desc = 'lazy[g]it (root)' })
-vim.keymap.set('n', '<leader>gG', function() lazygit() end, { desc = 'lazy[G]it (cwd)' })
-
--- [[ terminal ]]
-
---- Switch to terminal tab if running in Zellij else open lazyterm.
-local terminal = function()
-  if vim.env.ZELLIJ ~= nil then
-    vim.fn.system({ 'zellij', 'action', 'go-to-tab-name', 'terminal', '--create' })
-    vim.fn.system({ 'zellij', 'action', 'switch-mode', 'normal' })
+local lazygit = function()
+  if vim.env.ZELLIJ == nil then
+    Snacks.lazygit({ cwd = utils.root() })
     return
   end
-  utils.terminal(nil, { cwd = utils.root() })
+  vim.fn.system({
+    'zellij',
+    'run',
+    '--floating',
+    '--close-on-exit',
+    '--borderless',
+    'true',
+    '--name',
+    'lazygit',
+    '--width',
+    '90%',
+    '--height',
+    '90%',
+    '--',
+    'lazygit',
+  })
 end
 
-vim.keymap.set(
-  'n',
-  '<leader>ft',
-  function() Snacks.terminal(nil, { cwd = utils.root() }) end,
-  { desc = '[t]erminal (root)' }
-)
-vim.keymap.set('n', '<leader>fT', function() Snacks.terminal() end, { desc = '[T]erminal (cwd)' })
-vim.keymap.set('n', '<c-/>', terminal, { desc = 'terminal (root)' })
-vim.keymap.set('n', '<c-_>', terminal, { desc = 'which_key_ignore' })
-
--- terminal mappings
-vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', { desc = 'enter normal mode' })
-vim.keymap.set('t', '<C-h>', '<cmd>wincmd h<cr>', { desc = 'goto left window' })
-vim.keymap.set('t', '<C-j>', '<cmd>wincmd j<cr>', { desc = 'goto lower window' })
-vim.keymap.set('t', '<C-k>', '<cmd>wincmd k<cr>', { desc = 'goto upper window' })
-vim.keymap.set('t', '<C-l>', '<cmd>wincmd l<cr>', { desc = 'goto right window' })
-vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'hide terminal' })
-vim.keymap.set('t', '<c-_>', '<cmd>close<cr>', { desc = 'which_key_ignore' })
+vim.keymap.set('n', '<leader>gg', lazygit, { desc = 'lazy[g]it' })
 
 -- [[ windows ]]
 

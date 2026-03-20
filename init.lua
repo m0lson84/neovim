@@ -17,6 +17,7 @@ _G.utils = require('util')
 -- Load configuration
 require('config.options')
 require('config.lazy')
+require('config.autocmds')
 require('config.keymaps')
 
 -- [[ Configure and install plugins ]]
@@ -52,5 +53,3 @@ require('lazy').setup({
     },
   },
 })
-
-require('config.autocmds')

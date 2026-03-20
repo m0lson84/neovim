@@ -10,12 +10,6 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
   end,
 })
 
--- Highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = utils.autocmd.group('highlight_yank'),
-  callback = function() vim.highlight.on_yank() end,
-})
-
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ 'VimResized' }, {
   group = utils.autocmd.group('resize_splits'),
@@ -131,11 +125,4 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 vim.api.nvim_create_autocmd({ 'FileType' }, {
   group = utils.autocmd.group('language_ruler'),
   callback = function() vim.wo.colorcolumn = vim.bo.textwidth and '+1' or '' end,
-})
-
--- Quit Zellij when quitting Neovim
-vim.api.nvim_create_autocmd({ 'VimLeave' }, {
-  group = utils.autocmd.group('quit_zellij'),
-  pattern = '*',
-  callback = function() os.execute('zellij k "$ZELLIJ_SESSION_NAME"') end,
 })

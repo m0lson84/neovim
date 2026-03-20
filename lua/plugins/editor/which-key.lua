@@ -35,7 +35,6 @@ return {
         { '<leader>s', group = '[s]earch', icon = { icon = '', color = 'gray' } },
         { '<leader>t', group = '[t]est', icon = { icon = '󰙨', color = 'green' } },
         { '<leader>u', group = '[u]i', icon = { icon = '󰇄', color = 'blue' } },
-        { '<leader>x', group = 'quickfi[x]', icon = { icon = '󱖫 ', color = 'green' } },
         {
           '<leader>w',
           proxy = '<c-w>',
@@ -43,7 +42,7 @@ return {
           icon = { icon = '', color = 'azure' },
           expand = function() return require('which-key.extras').expand.win() end,
         },
-        { '<leader>x', group = 'quickfi[x]' },
+        { '<leader>x', group = 'quickfi[x]', icon = { icon = '󱖫 ', color = 'green' } },
       },
     },
     keys = {

@@ -16,18 +16,6 @@ return {
         animate = { enabled = false },
         bottom = {
           {
-            title = 'Terminal',
-            ft = 'toggleterm',
-            size = size['bottom'],
-            filter = function(buf, win) return vim.api.nvim_win_get_config(win).relative == '' end,
-          },
-          {
-            title = 'REPL',
-            ft = 'iron',
-            size = { height = 0.25 },
-            filter = function(buf) return require('iron.lowlevel').repl_exists({ bufnr = buf }) end,
-          },
-          {
             title = 'Help',
             ft = 'help',
             size = size['bottom'],
@@ -72,19 +60,6 @@ return {
         })
       end
 
-      for _, pos in ipairs({ 'bottom', 'left', 'right' }) do
-        table.insert(opts[pos], {
-          ft = 'snacks_terminal',
-          title = '%{b:snacks_terminal.id}: %{b:term_title}',
-          size = size[pos],
-          filter = function(_, win)
-            return vim.w[win].snacks_win
-              and vim.w[win].snacks_win.position == pos
-              and vim.w[win].snacks_win.relative == 'editor'
-              and not vim.w[win].trouble_preview
-          end,
-        })
-      end
       return opts
     end,
   },
