@@ -1,12 +1,13 @@
 --[[
-Auto-commands utilities.
+Autocmd utilities
 --]]
 
 ---@class util.autocmd
-M = {}
+local M = {}
 
---- Create a new autocmd group
----@param name string The name of the group to create
+--- Create a namespaced augroup with `clear = true`.
+---@param name string The augroup suffix (prefixed with `local_`).
+---@return integer augroup_id
 function M.group(name) return vim.api.nvim_create_augroup('local_' .. name, { clear = true }) end
 
 return M

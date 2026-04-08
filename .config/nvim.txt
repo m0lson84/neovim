@@ -2,6 +2,8 @@ autocmd
 autocmds
 bnext
 bprevious
+bufdelete
+bufferline
 buflisted
 bufname
 bufnr

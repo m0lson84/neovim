@@ -1,24 +1,22 @@
 --[[
-Mason package utilities.
+Mason package utilities
 --]]
 
 ---@class util.pkg
 local M = {}
 
---- Gets a path to a package in the Mason registry.
---- Prefer this to `get_package`, since the package might not always be
---- available yet and trigger errors.
----@param pkg string
----@param path? string
----@param opts? { warn?: boolean }
+--- Get a path to a package in the Mason registry.
+---@param pkg string The package name.
+---@param path? string The path within the package.
+---@param opts? { warn?: boolean } Options.
 function M.get_path(pkg, path, opts)
-  pcall(require, 'mason') -- make sure Mason is loaded. Will fail when generating docs
+  pcall(require, 'mason')
   local root = vim.env.MASON or (vim.fn.stdpath('data') .. '/mason')
   opts = opts or {}
   opts.warn = opts.warn == nil and true or opts.warn
   path = path or ''
   local ret = root .. '/packages/' .. pkg .. '/' .. path
-  if opts.warn and not vim.uv.fs_stat(ret) and not require('lazy.core.config').headless() then
+  if opts.warn and not vim.uv.fs_stat(ret) then
     vim.notify(
       ('Mason package path not found for **%s**:\n- `%s`\nYou may need to force update the package.'):format(pkg, path),
       vim.log.levels.WARN
