@@ -22,6 +22,9 @@ vim.lsp.config('*', {
   root_markers = { '.git' },
 })
 
+local servers = vim.tbl_map(function(config) return config.name end, vim.lsp.get_configs())
+vim.lsp.enable(servers)
+
 vim.diagnostic.config({
   underline = true,
   update_in_insert = false,

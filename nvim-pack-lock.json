@@ -174,7 +174,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "8f7e64066e2641d5e7d494962a9c7051e3d38dd5",
+      "rev": "f9349d4d99e7d66403ae8bf4fbd357b154dca7a7",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -200,7 +200,7 @@
       "src": "https://github.com/Hoffs/omnisharp-extended-lsp.nvim"
     },
     "opencode.nvim": {
-      "rev": "3196b61c566abf753ab79d5e1d2cf190f72a7326",
+      "rev": "6b5acdcb4b2268c3a2b4b791457bf5b12e38e1bb",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "persistence.nvim": {
@@ -216,7 +216,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "rustaceanvim": {
-      "rev": "f5c1bf138571442bfda96a2bf45239e009264a6e",
+      "rev": "c01bec32bfb3b917debd380eb114234b3c4c96c7",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "snacks.nvim": {
