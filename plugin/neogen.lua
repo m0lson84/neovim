@@ -19,7 +19,6 @@ local file_types = {
 
 require('neogen').setup({
   languages = {
-    cs = { template = { annotation_convention = 'xmldoc' } },
     go = { template = { annotation_convention = 'godoc' } },
     javascript = { template = { annotation_convention = 'jsdoc' } },
     javascriptreact = { template = { annotation_convention = 'jsdoc' } },

@@ -41,7 +41,7 @@ end
 
 require('snacks').setup({
   bigfile = { enabled = true, size = 1.5 * 1024 * 1024 },
-  explorer = {},
+  explorer = { trash = false },
   indent = { enabled = true },
   input = { enabled = true },
   notifier = { enabled = true },

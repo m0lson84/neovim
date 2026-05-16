@@ -19,7 +19,6 @@ require('conform').setup({
 
   formatters_by_ft = {
     bash = { 'shfmt' },
-    cs = { 'csharpier' },
     css = { 'prettierd' },
     dotenv = { 'shfmt' },
     fish = { 'fish_indent' },
@@ -57,7 +56,6 @@ require('conform').setup({
     injected = { options = { ignore_errors = true } },
     ['biome-check'] = {},
     buf = {},
-    csharpier = { command = 'dotnet', args = { 'csharpier', 'format', '--write-stdout' }, stdin = true },
     ['golangci-lint'] = {},
     hurlfmt = {},
     rustfmt = {},

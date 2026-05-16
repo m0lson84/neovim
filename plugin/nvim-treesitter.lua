@@ -16,8 +16,6 @@ end
 require('nvim-treesitter').setup({})
 require('nvim-treesitter').install({
   'bash',
-  'bicep',
-  'c_sharp',
   'css',
   'dockerfile',
   'fish',
