@@ -114,6 +114,16 @@ vim.keymap.set('n', '<leader>nu', '<cmd>PackUpdate<cr>', { desc = '[u]pdate plug
 vim.keymap.set('n', '<leader>nr', '<cmd>PackRestore<cr>', { desc = '[r]estore plugins' })
 vim.keymap.set('n', '<leader>nh', '<cmd>PackHealth<cr>', { desc = '[h]ealth check' })
 
+-- [[ Terminal ]]
+
+vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>', { desc = 'enter normal mode' })
+vim.keymap.set('t', '<C-h>', '<cmd>wincmd h<cr>', { desc = 'goto left window' })
+vim.keymap.set('t', '<C-j>', '<cmd>wincmd j<cr>', { desc = 'goto lower window' })
+vim.keymap.set('t', '<C-k>', '<cmd>wincmd k<cr>', { desc = 'goto upper window' })
+vim.keymap.set('t', '<C-l>', '<cmd>wincmd l<cr>', { desc = 'goto right window' })
+vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'hide terminal' })
+vim.keymap.set('t', '<c-_>', '<cmd>close<cr>', { desc = 'which_key_ignore' })
+
 -- [[ Info ]]
 
 vim.keymap.set('n', '<leader>is', function()

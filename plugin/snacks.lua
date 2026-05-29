@@ -8,10 +8,13 @@ vim.o.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
 
 local exclude = { '__pycache__', '.DS_Store', 'thumbs.db' }
 
+--- Open a file explorer in the given directory..
+---@param dir? string The directory to open. Defaults to the cwd.
 local function explore(dir)
   return function() Snacks.explorer({ cwd = dir }) end
 end
 
+--- Open lazygit in a floating terminal.
 local function lazygit()
   if vim.env.ZELLIJ == nil then
     Snacks.lazygit({ cwd = vim.fs.root(0, '.git') or vim.uv.cwd() })
@@ -35,8 +38,21 @@ local function lazygit()
   })
 end
 
+--- Open a picker of the given type.
+---@param type string
+---@param opts? table
 local function pick(type, opts)
   return function() Snacks.picker[type](opts) end
+end
+
+--- Open a terminal with the given command(s).
+---@param cmd? string | string[]
+local function terminal(cmd)
+  return function()
+    Snacks.terminal(cmd, {
+      cwd = vim.fs.root(0, '.git') or vim.uv.cwd(),
+    })
+  end
 end
 
 require('snacks').setup({
@@ -55,17 +71,22 @@ require('snacks').setup({
   },
   scroll = { enabled = true },
   statuscolumn = { enabled = true },
+  terminal = { enabled = true },
   words = { enabled = true },
   styles = {
     notification = { wo = { wrap = true } },
   },
 })
 
+vim.keymap.set('n', '<c-/>', terminal(), { desc = 'terminal (root)' })
+vim.keymap.set('n', '<c-_>', terminal(), { desc = 'which_key_ignore' })
 vim.keymap.set('n', '<leader><leader>', pick('files'), { desc = 'search files' })
 vim.keymap.set('n', '<leader>bd', function() Snacks.bufdelete() end, { desc = '[d]elete buffer' })
 vim.keymap.set('n', '<leader>e', '<leader>fe', { desc = '[e]xplorer cwd', remap = true })
 vim.keymap.set('n', '<leader>fe', explore(vim.uv.cwd()), { desc = '[e]xplorer cwd' })
 vim.keymap.set('n', '<leader>fE', explore(vim.fs.root(0, '.git') or vim.uv.cwd()), { desc = '[e]xplorer root' })
+vim.keymap.set('n', '<leader>ft', terminal(), { desc = '[T]erminal (root)' })
+vim.keymap.set('n', '<leader>fT', function() Snacks.terminal() end, { desc = '[T]erminal (cwd)' })
 vim.keymap.set('n', '<leader>gg', lazygit, { desc = 'lazy[g]it' })
 vim.keymap.set('n', '<leader>sb', pick('buffers'), { desc = '[b]uffers' })
 vim.keymap.set('n', '<leader>sd', pick('diagnostics'), { desc = '[d]iagnostics' })
