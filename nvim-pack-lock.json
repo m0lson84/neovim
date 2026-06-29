@@ -1,7 +1,7 @@
 {
   "plugins": {
     "SchemaStore.nvim": {
-      "rev": "490afbd7fd3b316330550405ac74758a971104a4",
+      "rev": "6ff1f21b2e2b77ec59f7433ce2d9fbc052d908ac",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "blink-copilot": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/jellydn/hurl.nvim"
     },
     "kulala.nvim": {
-      "rev": "b78b1aab31844bdba8a94041ff22a61d1563ba35",
+      "rev": "f3804a9a581fe9a63ef42fbe00d58fb7589169f9",
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "lazydev.nvim": {
@@ -90,7 +90,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.ai": {
-      "rev": "d73c36349aa7b0bab5f77ad71701a1d42211a1df",
+      "rev": "cb20f298ebf5ae91924cd0c6c310712de2ef4086",
       "src": "https://github.com/nvim-mini/mini.ai"
     },
     "mini.icons": {
@@ -114,7 +114,7 @@
       "src": "https://github.com/danymat/neogen"
     },
     "neotest": {
-      "rev": "ad991822b7076b1d940b33a9d6d0d30416d5df81",
+      "rev": "ff5437f7d9af801917bed119082934b0eb6ee0e9",
       "src": "https://github.com/nvim-neotest/neotest"
     },
     "neotest-golang": {
@@ -196,7 +196,7 @@
       "version": "'main'"
     },
     "opencode.nvim": {
-      "rev": "43adb10f21403adeec5980e73305fff29195e36b",
+      "rev": "427dd9c64c90dfa05479c52e5d6c9febdf31f83c",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "persistence.nvim": {
@@ -212,7 +212,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "rustaceanvim": {
-      "rev": "c4bc80032bed16b482a0c2c3961ca82aa7f1a464",
+      "rev": "24958d97c0e2393339e59404ebe7ee687951ea24",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "snacks.nvim": {
