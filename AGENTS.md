@@ -8,7 +8,7 @@ Neovim configuration repo (Lua). Package manager: **vim.pack** (native). Require
 init.lua              -- entrypoint: startup time, vim.loader, requires config/*, ui2 enable
 lua/config/           -- options, commands, keymaps, icons, colorscheme
 lua/util/             -- autocmd.lua, format.lua (conform helper), pkg.lua (mason path helper)
-lsp/                  -- native vim.lsp.Config files, one per server (26 servers)
+after/lsp/            -- vim.lsp.Config files, one per server (24 servers)
 plugin/               -- auto-sourced plugin configs, one per plugin (vim.pack.add + setup + keymaps)
 nvim-pack-lock.json   -- lockfile for vim.pack (pinned plugin revisions); committed
 ```
@@ -63,9 +63,11 @@ vim.api.nvim_create_user_command(...)
 
 ## LSP setup
 
-LSP uses **native `lsp/*.lua` files** with **nvim-lspconfig** providing default `cmd`, `filetypes`, and `root_markers` for each server. Each `lsp/<server>.lua` returns a `vim.lsp.Config` table that overrides/extends those defaults (typically just `settings`). `rust_analyzer` is handled by `rustaceanvim` and is not listed in `vim.lsp.enable()`.
+LSP uses **native `vim.lsp.Config` files in `after/lsp/`** with **nvim-lspconfig** providing default `cmd`, `filetypes`, and `root_markers` for each server. Each `after/lsp/<server>.lua` returns a `vim.lsp.Config` table that overrides/extends those defaults (typically just `settings`). `rust_analyzer` is handled by `rustaceanvim` and is not listed in `vim.lsp.enable()`.
 
-Mason auto-installs servers (`mason-lspconfig` has `automatic_enable = false`; servers are explicitly enabled via `vim.lsp.enable()` in `plugin/lsp.lua`). To add a new LSP server, create `lsp/<server>.lua` and add the server name to the `vim.lsp.enable()` list in `plugin/lsp.lua`.
+User configs live in `after/lsp/` (not `lsp/`) so they reliably win the deep merge against nvim-lspconfig's bundled `lsp/<server>.lua` files. Per `:help lsp-config-merge`, configs are merged with `vim.tbl_deep_extend('force', ...)` in this order: (1) `'*'` config, (2) all `lsp/*.lua` on `'runtimepath'`, (3) all `after/lsp/*.lua` on `'runtimepath'`, (4) explicit `vim.lsp.config()` calls. Because nvim-lspconfig ships `lsp/<server>.lua` files, putting user configs in `lsp/` lets nvim-lspconfig silently override them when keys collide.
+
+Mason auto-installs servers (`mason-lspconfig` has `automatic_enable = false`; servers are explicitly enabled via `vim.lsp.enable()` in `plugin/nvim-lspconfig.lua`). The list of servers to enable is derived from `after/lsp/*.lua` filenames by `util.lsp.servers()`. To add a new LSP server, create `after/lsp/<server>.lua` — it will be picked up automatically.
 
 ## Style & formatting
 
@@ -90,7 +92,7 @@ Mason auto-installs servers (`mason-lspconfig` has `automatic_enable = false`; s
 ## Adding a new language
 
 1. Add treesitter parser to `ensure_installed` in `plugin/nvim-treesitter.lua`
-2. Create `lsp/<server>.lua` for the language server
+2. Create `after/lsp/<server>.lua` for the language server
 3. Add formatter mapping in `plugin/conform.lua` (`formatters_by_ft`)
 4. Add linter mapping in `plugin/nvim-lint.lua` (`linters_by_ft`) if needed
 5. Add mason packages to `plugin/mason.lua` `ensure_installed`
