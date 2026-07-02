@@ -66,7 +66,7 @@
       "src": "https://github.com/jellydn/hurl.nvim"
     },
     "kulala.nvim": {
-      "rev": "7fba542e4300c0d915f64da8a759f68ca1bd6b77",
+      "rev": "4809552cfeba51dd4630dfd4a31513e9b19dcfd3",
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "lazydev.nvim": {
@@ -94,7 +94,7 @@
       "src": "https://github.com/nvim-mini/mini.ai"
     },
     "mini.icons": {
-      "rev": "e56797f90192d81f1fda02e662fc3e8e3d775027",
+      "rev": "24dbea2195c477e57d581215839a6ab915f34b14",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.indentscope": {
@@ -102,7 +102,7 @@
       "src": "https://github.com/nvim-mini/mini.indentscope"
     },
     "mini.pairs": {
-      "rev": "db0fac0a25884183650352ccf92b362a41ed2e9c",
+      "rev": "fd150ac39b78e6a2286f5138e472b7dc7eba43b9",
       "src": "https://github.com/nvim-mini/mini.pairs"
     },
     "mini.surround": {
@@ -114,7 +114,7 @@
       "src": "https://github.com/danymat/neogen"
     },
     "neotest": {
-      "rev": "639fb9eea9f1b045b5977d9154706ce6bc8e1a55",
+      "rev": "fb84d87285698f7055f618083c351984449119b8",
       "src": "https://github.com/nvim-neotest/neotest"
     },
     "neotest-golang": {
@@ -126,7 +126,7 @@
       "src": "https://github.com/nvim-neotest/neotest-jest"
     },
     "neotest-python": {
-      "rev": "e6df4f1892f6137f58135917db24d1655937d831",
+      "rev": "51c453d57f8d5156671b42ea57fafa2e1c9fb641",
       "src": "https://github.com/nvim-neotest/neotest-python"
     },
     "neotest-vitest": {
@@ -196,7 +196,7 @@
       "version": "'main'"
     },
     "opencode.nvim": {
-      "rev": "615634114c93335a4e7f76d943b4ba787ab364dd",
+      "rev": "8cb752f295664ab0736ad4498f659324e506e074",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "persistence.nvim": {

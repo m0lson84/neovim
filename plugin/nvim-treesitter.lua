@@ -50,6 +50,7 @@ require('nvim-treesitter').install({
   'rust',
   'scss',
   'sql',
+  'svelte',
   'templ',
   'toml',
   'tsx',
