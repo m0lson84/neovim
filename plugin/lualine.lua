@@ -4,13 +4,9 @@ lualine.nvim (https://github.com/nvim-lualine/lualine.nvim)
 
 local icons = require('config.icons')
 
-vim.pack.add({ 'https://github.com/nvim-lualine/lualine.nvim' })
-
-local function fg(name)
-  local hl = vim.api.nvim_get_hl(0, { name = name, link = false })
-  local color = hl.fg or hl.foreground
-  return color and { fg = string.format('#%06x', color) } or nil
-end
+vim.pack.add({
+  'https://github.com/nvim-lualine/lualine.nvim',
+})
 
 vim.g.lualine_laststatus = vim.o.laststatus
 if vim.fn.argc(-1) > 0 then
@@ -20,6 +16,15 @@ else
 end
 
 vim.o.laststatus = vim.g.lualine_laststatus
+
+--- Get the foreground color of a highlight group.
+---@param name string The name of the highlight group.
+---@return table|nil fg The foreground color in the format { fg = '#RRGGBB' } or nil if not found.
+local function fg(name)
+  local hl = vim.api.nvim_get_hl(0, { name = name, link = false })
+  local color = hl.fg or hl.foreground
+  return color and { fg = string.format('#%06x', color) } or nil
+end
 
 require('lualine').setup({
   options = {

@@ -2,7 +2,9 @@
 edgy.nvim (https://github.com/folke/edgy.nvim)
 --]]
 
-vim.pack.add({ 'https://github.com/folke/edgy.nvim' })
+vim.pack.add({
+  'https://github.com/folke/edgy.nvim',
+})
 
 local size = {
   left = { width = 0.2 },

@@ -4,11 +4,23 @@ conform.nvim (https://github.com/stevearc/conform.nvim)
 
 local format = require('util.format')
 
-vim.o.formatexpr = 'v:lua.require\'conform\'.formatexpr()'
-
 vim.pack.add({
   'https://github.com/stevearc/conform.nvim',
 })
+
+vim.o.formatexpr = 'v:lua.require\'conform\'.formatexpr()'
+
+--- Callback that formats the current buffer.
+---@return function callback The callback function.
+local function format_buffer()
+  return function() require('conform').format({ async = true }) end
+end
+
+--- Callback for formatting injected languages in the current buffer.
+---@return function callback The callback function.
+local function format_injected()
+  return function() require('conform').format({ formatters = { 'injected' } }) end
+end
 
 require('conform').setup({
   default_format_opts = { timeout_ms = 3000, async = false, quiet = false, lsp_format = 'fallback' },
@@ -98,18 +110,6 @@ vim.api.nvim_create_user_command('FormatToggle', function()
   local state = vim.g.disable_autoformat and 'disabled' or 'enabled'
   vim.notify('Format on save: ' .. state, vim.log.levels.INFO)
 end, { desc = 'Toggle format on save' })
-
---- Callback that formats the current buffer.
----@return function callback The callback function.
-local function format_buffer()
-  return function() require('conform').format({ async = true }) end
-end
-
---- Callback for formatting injected languages in the current buffer.
----@return function callback The callback function.
-local function format_injected()
-  return function() require('conform').format({ formatters = { 'injected' } }) end
-end
 
 vim.keymap.set({ 'n', 'v' }, '<leader>cf', format_buffer(), { desc = '[f]ormat buffer' })
 vim.keymap.set({ 'n', 'v' }, '<leader>cF', format_injected(), { desc = '[F]ormat injected langs' })

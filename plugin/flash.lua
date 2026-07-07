@@ -2,7 +2,9 @@
 flash.nvim (https://github.com/folke/flash.nvim)
 --]]
 
-vim.pack.add({ 'https://github.com/folke/flash.nvim' })
+vim.pack.add({
+  'https://github.com/folke/flash.nvim',
+})
 
 require('flash').setup({})
 

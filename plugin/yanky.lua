@@ -2,7 +2,9 @@
 yanky.nvim (https://github.com/gbprod/yanky.nvim)
 --]]
 
-vim.pack.add({ 'https://github.com/gbprod/yanky.nvim' })
+vim.pack.add({
+  'https://github.com/gbprod/yanky.nvim',
+})
 
 require('yanky').setup({
   highlight = { timer = 150 },

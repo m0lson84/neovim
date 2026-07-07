@@ -3,6 +3,7 @@ neotest (https://github.com/nvim-neotest/neotest)
 --]]
 
 local initialized = false
+
 local function ensure_init()
   if initialized then return end
   initialized = true

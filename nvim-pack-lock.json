@@ -1,7 +1,7 @@
 {
   "plugins": {
     "SchemaStore.nvim": {
-      "rev": "19adbfb1c4d4049b691be0d840936b109de0f5ea",
+      "rev": "e954496f8ef22904e8a84f5078f4a110fdc7a0d3",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "blink-copilot": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/jellydn/hurl.nvim"
     },
     "kulala.nvim": {
-      "rev": "84cb164d2088e2c781bedde0229610ff0d7f0eec",
+      "rev": "91cf892008c773ce74ac392c4c12ddff775b7619",
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "lazydev.nvim": {
@@ -90,23 +90,23 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.ai": {
-      "rev": "cb20f298ebf5ae91924cd0c6c310712de2ef4086",
+      "rev": "2f763720771e192bdf9d2e25bfae339930ba4231",
       "src": "https://github.com/nvim-mini/mini.ai"
     },
     "mini.icons": {
-      "rev": "24dbea2195c477e57d581215839a6ab915f34b14",
+      "rev": "98faae31e9be1cc054ae63485e58ceb185efcad0",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.indentscope": {
-      "rev": "942bc13ccc624c825b086373b8bd6787b98245c8",
+      "rev": "92fbaf895f83c59575ec599df532b297ebf62b14",
       "src": "https://github.com/nvim-mini/mini.indentscope"
     },
     "mini.pairs": {
-      "rev": "fd150ac39b78e6a2286f5138e472b7dc7eba43b9",
+      "rev": "b1fd9df3bb4a41c8f45778a3859ee80ef6b367e3",
       "src": "https://github.com/nvim-mini/mini.pairs"
     },
     "mini.surround": {
-      "rev": "a2f644f3759edd3d3f8b6a6d55378408bfe6d290",
+      "rev": "19b44c1bbe4eecaf191896b8bec657d5fdd549e4",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "neogen": {
@@ -212,7 +212,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "rustaceanvim": {
-      "rev": "8c7b4e0a8333f21e3c981d2009c2af237904e803",
+      "rev": "eb0c154504e9db6f7564cd2f06c5b7d6e01c71ff",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "snacks.nvim": {

@@ -2,7 +2,9 @@
 Neogen (https://github.com/danymat/neogen)
 --]]
 
-vim.pack.add({ 'https://github.com/danymat/neogen' })
+vim.pack.add({
+  'https://github.com/danymat/neogen',
+})
 
 local file_types = {
   'bash',

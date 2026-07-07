@@ -5,12 +5,14 @@ vim.pack.add({
   'https://github.com/MunifTanjim/nui.nvim',
 })
 
-local function scroll_forward()
-  if not require('noice.lsp').scroll(4) then return '<c-f>' end
-end
-
+--- Scroll backward in the message history.
 local function scroll_backward()
   if not require('noice.lsp').scroll(-4) then return '<c-b>' end
+end
+
+--- Scroll forward in the message history.
+local function scroll_forward()
+  if not require('noice.lsp').scroll(4) then return '<c-f>' end
 end
 
 require('noice').setup({
@@ -42,7 +44,12 @@ require('noice').setup({
   },
 })
 
-vim.keymap.set('c', '<S-Enter>', function() require('noice').redirect(vim.fn.getcmdline()) end, { desc = 'redirect cmdline' })
+vim.keymap.set(
+  'c',
+  '<S-Enter>',
+  function() require('noice').redirect(vim.fn.getcmdline()) end,
+  { desc = 'redirect cmdline' }
+)
 vim.keymap.set({ 'i', 'n', 's' }, '<c-b>', scroll_backward, { silent = true, expr = true, desc = 'scroll backward' })
 vim.keymap.set({ 'i', 'n', 's' }, '<c-f>', scroll_forward, { silent = true, expr = true, desc = 'scroll forward' })
 vim.keymap.set('n', '<leader>sna', function() require('noice').cmd('all') end, { desc = '[a]ll messages' })

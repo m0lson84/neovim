@@ -4,7 +4,9 @@ bufferline.nvim (https://github.com/akinsho/bufferline.nvim)
 
 local icons = require('config.icons')
 
-vim.pack.add({ 'https://github.com/akinsho/bufferline.nvim' })
+vim.pack.add({
+  'https://github.com/akinsho/bufferline.nvim',
+})
 
 local bufferline = require('bufferline')
 bufferline.setup({

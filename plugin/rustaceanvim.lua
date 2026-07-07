@@ -2,7 +2,9 @@
 rustaceanvim (https://github.com/mrcjkb/rustaceanvim)
 --]]
 
-vim.pack.add({ 'https://github.com/mrcjkb/rustaceanvim' })
+vim.pack.add({
+  'https://github.com/mrcjkb/rustaceanvim',
+})
 
 vim.g.rustaceanvim = vim.tbl_deep_extend('keep', vim.g.rustaceanvim or {}, {
   server = {

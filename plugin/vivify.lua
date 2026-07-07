@@ -2,7 +2,9 @@
 vivify.vim (https://github.com/jannis-baum/vivify.vim)
 --]]
 
-vim.pack.add({ 'https://github.com/jannis-baum/vivify.vim' })
+vim.pack.add({
+  'https://github.com/jannis-baum/vivify.vim',
+})
 
 vim.g.vivify_filetypes = { 'vimwiki' }
 

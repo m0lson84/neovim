@@ -10,6 +10,7 @@ vim.api.nvim_create_autocmd('FileType', {
       'https://github.com/jellydn/hurl.nvim',
       'https://github.com/MunifTanjim/nui.nvim',
     })
+
     require('hurl').setup({
       debug = true,
       mode = 'split',

@@ -2,7 +2,9 @@
 opencode.nvim (https://github.com/NickvanDyke/opencode.nvim)
 --]]
 
-vim.pack.add({ 'https://github.com/nickjvandyke/opencode.nvim' })
+vim.pack.add({
+  'https://github.com/nickjvandyke/opencode.nvim',
+})
 
 ---@param default? string Text to prefill the input with.
 local function ask_prompt(default)
