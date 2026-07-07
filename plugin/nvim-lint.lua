@@ -43,10 +43,8 @@ vim.schedule(function()
     dockerfile = { 'hadolint' },
     dotenv = { 'dotenv_linter' },
     editorconfig = { 'editorconfig-checker' },
-    fish = { 'fish' },
     go = { 'golangcilint' },
     markdown = { 'markdownlint-cli2' },
-    proto = { 'buf_lint' },
     sql = { 'sqlfluff' },
   }
 

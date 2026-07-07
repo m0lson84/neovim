@@ -14,7 +14,7 @@ require('conform').setup({
   default_format_opts = { timeout_ms = 3000, async = false, quiet = false, lsp_format = 'fallback' },
   format_on_save = function()
     if vim.g.disable_autoformat then return end
-    return { timeout_ms = 3000, lsp_format = 'fallback' }
+    return { timeout_ms = 3000 }
   end,
 
   formatters_by_ft = {
@@ -35,19 +35,20 @@ require('conform').setup({
     lua = { 'stylua' },
     markdown = { 'prettierd' },
     markdown_mdx = { 'prettierd' },
-    proto = { 'buf' },
-    python = { 'ruff_fix', 'ruff_format' },
+    proto = { 'buf', lsp_format = 'prefer' },
+    python = { 'ruff_fix', lsp_format = 'last' },
     rust = { 'rustfmt' },
     scss = { 'prettierd' },
     sh = { 'shfmt' },
     sql = { 'sqlfluff', 'sqlfmt' },
-    templ = { 'templ', 'injected' },
+    svelte = { lsp_format = 'prefer' },
+    templ = { 'injected', lsp_format = 'first' },
     toml = { 'taplo' },
     typescript = function(bufnr) return { format.get(bufnr, 'biome-check', 'prettierd') } end,
     typescriptreact = function(bufnr) return { format.get(bufnr, 'biome-check', 'prettierd') } end,
     typst = { 'typstyle' },
     vue = { 'prettierd' },
-    yaml = { 'prettierd' },
+    yaml = { 'prettierd', lsp_format = 'prefer' },
     zig = { 'zigfmt' },
     zsh = { 'shfmt' },
   },
@@ -83,7 +84,6 @@ require('conform').setup({
         }
       end,
     },
-    templ = {},
     typstyle = {
       prepend_args = function(_, ctx)
         local line_length = vim.bo[ctx.buf].textwidth or 120
