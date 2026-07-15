@@ -51,7 +51,7 @@ local function ensure_init()
       jestCommand = 'npm test --',
       jestConfigFile = find_config('jest.config.ts'),
     }),
-    require('neotest-vitest')({ vitestConfigFile = find_config('vitest.config.ts') }),
+    require('neotest-vitest')({}),
     require('neotest-zig')({ dap = { adapters = 'lldb-dap' } }),
     require('rustaceanvim.neotest'),
   }
