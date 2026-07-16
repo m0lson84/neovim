@@ -10,6 +10,7 @@ require('lazydev').setup({
   library = {
     { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
     { path = '/usr/share/hypr/stubs', words = { 'hl' } },
+    { path = 'nvim-lspconfig', words = { 'lspconfig' } },
     { path = 'snacks.nvim', words = { 'Snacks' } },
   },
 })

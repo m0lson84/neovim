@@ -4,6 +4,7 @@ gopls (https://pkg.go.dev/golang.org/x/tools/gopls)
 
 ---@type vim.lsp.Config
 return {
+  ---@type lspconfig.settings.gopls
   settings = {
     gopls = {
       codelenses = {
