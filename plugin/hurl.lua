@@ -2,15 +2,15 @@
 hurl.nvim (https://github.com/jellydn/hurl.nvim)
 --]]
 
+vim.pack.add({
+  'https://github.com/jellydn/hurl.nvim',
+  'https://github.com/MunifTanjim/nui.nvim',
+})
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'hurl',
   once = true,
   callback = function()
-    vim.pack.add({
-      'https://github.com/jellydn/hurl.nvim',
-      'https://github.com/MunifTanjim/nui.nvim',
-    })
-
     require('hurl').setup({
       debug = true,
       mode = 'split',

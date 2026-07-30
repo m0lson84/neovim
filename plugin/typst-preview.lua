@@ -2,14 +2,14 @@
 typst-preview.nvim (https://github.com/chomosuke/typst-preview.nvim)
 --]]
 
+vim.pack.add({
+  'https://github.com/chomosuke/typst-preview.nvim',
+})
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'typst',
   once = true,
   callback = function()
-    vim.pack.add({
-      'https://github.com/chomosuke/typst-preview.nvim',
-    })
-
     require('typst-preview').setup({
       dependencies_bin = {
         tinymist = 'tinymist',

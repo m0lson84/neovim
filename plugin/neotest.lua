@@ -2,24 +2,24 @@
 neotest (https://github.com/nvim-neotest/neotest)
 --]]
 
+vim.pack.add({
+  'https://github.com/nvim-neotest/neotest',
+  'https://github.com/nvim-neotest/nvim-nio',
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/mrcjkb/rustaceanvim',
+  'https://github.com/nsidorenco/neotest-vstest',
+  'https://github.com/fredrikaverpil/neotest-golang',
+  'https://github.com/nvim-neotest/neotest-python',
+  'https://github.com/nvim-neotest/neotest-jest',
+  'https://github.com/marilari88/neotest-vitest',
+  'https://github.com/lawrence-laz/neotest-zig',
+})
+
 local initialized = false
 
 local function ensure_init()
   if initialized then return end
   initialized = true
-
-  vim.pack.add({
-    'https://github.com/nvim-neotest/neotest',
-    'https://github.com/nvim-neotest/nvim-nio',
-    'https://github.com/nvim-lua/plenary.nvim',
-    'https://github.com/mrcjkb/rustaceanvim',
-    'https://github.com/nsidorenco/neotest-vstest',
-    'https://github.com/fredrikaverpil/neotest-golang',
-    'https://github.com/nvim-neotest/neotest-python',
-    'https://github.com/nvim-neotest/neotest-jest',
-    'https://github.com/marilari88/neotest-vitest',
-    'https://github.com/lawrence-laz/neotest-zig',
-  })
 
   local function find_config(file_name)
     return function()

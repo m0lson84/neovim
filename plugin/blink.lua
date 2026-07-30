@@ -2,14 +2,14 @@
 blink.cmp (https://github.com/saghen/blink.cmp)
 --]]
 
-vim.schedule(function()
-  vim.pack.add({
-    { src = 'https://github.com/saghen/blink.cmp', version = 'v1' },
-    'https://github.com/rafamadriz/friendly-snippets',
-    'https://github.com/saghen/blink.compat',
-    'https://github.com/fang2hou/blink-copilot',
-  })
+vim.pack.add({
+  { src = 'https://github.com/saghen/blink.cmp', version = 'v1' },
+  'https://github.com/rafamadriz/friendly-snippets',
+  'https://github.com/saghen/blink.compat',
+  'https://github.com/fang2hou/blink-copilot',
+})
 
+vim.schedule(function()
   require('blink.compat').setup({})
 
   require('blink.cmp').setup({

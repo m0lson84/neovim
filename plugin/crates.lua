@@ -2,14 +2,14 @@
 crates.nvim (https://github.com/Saecki/crates.nvim)
 --]]
 
+vim.pack.add({
+  'https://github.com/Saecki/crates.nvim',
+})
+
 vim.api.nvim_create_autocmd('BufRead', {
   pattern = 'Cargo.toml',
   once = true,
   callback = function()
-    vim.pack.add({
-      'https://github.com/Saecki/crates.nvim',
-    })
-
     require('crates').setup({
       completion = {
         crates = {

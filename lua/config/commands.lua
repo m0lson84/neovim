@@ -104,10 +104,10 @@ vim.api.nvim_create_autocmd('FileType', {
     'qf',
     'startuptime',
   },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
+  callback = function(args)
+    vim.bo[args.buf].buflisted = false
     vim.keymap.set('n', 'q', '<cmd>close<cr>', {
-      buf = event.buf,
+      buf = args.buf,
       silent = true,
       desc = 'quit buffer',
     })
@@ -131,7 +131,7 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 vim.api.nvim_create_autocmd('FileType', {
   group = autocmd.group('man_unlisted'),
   pattern = { 'man' },
-  callback = function(event) vim.bo[event.buf].buflisted = false end,
+  callback = function(args) vim.bo[args.buf].buflisted = false end,
 })
 
 -- wrap lines in text filetypes
@@ -140,33 +140,3 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'gitcommit', 'markdown', 'plaintext', 'text' },
   callback = function() vim.wo.wrap = true end,
 })
-
--- [[ User commands ]]
-
--- vim.pack management
-vim.api.nvim_create_user_command('PackUpdate', function() vim.pack.update() end, { desc = 'Update all plugins' })
-vim.api.nvim_create_user_command(
-  'PackStatus',
-  function() vim.pack.update(nil, { offline = true }) end,
-  { desc = 'Show plugin status' }
-)
-vim.api.nvim_create_user_command(
-  'PackForceUpdate',
-  function() vim.pack.update(nil, { force = true }) end,
-  { desc = 'Force update all plugins' }
-)
-vim.api.nvim_create_user_command(
-  'PackRestore',
-  function() vim.pack.update(nil, { target = 'lockfile' }) end,
-  { desc = 'Restore plugins to lockfile state' }
-)
-vim.api.nvim_create_user_command(
-  'PackDelete',
-  function(opts) vim.pack.del({ opts.args }) end,
-  { nargs = 1, desc = 'Delete a plugin' }
-)
-vim.api.nvim_create_user_command(
-  'PackHealth',
-  function() vim.cmd('checkhealth vim.pack') end,
-  { desc = 'Plugin health check' }
-)

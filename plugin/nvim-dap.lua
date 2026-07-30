@@ -2,20 +2,20 @@
 nvim-dap (https://github.com/mfussenegger/nvim-dap)
 --]]
 
+vim.pack.add({
+  'https://github.com/mfussenegger/nvim-dap',
+  'https://github.com/rcarriga/nvim-dap-ui',
+  'https://github.com/nvim-neotest/nvim-nio',
+  'https://github.com/theHamsta/nvim-dap-virtual-text',
+  'https://github.com/jay-babu/mason-nvim-dap.nvim',
+  'https://github.com/leoluz/nvim-dap-go',
+  'https://github.com/mfussenegger/nvim-dap-python',
+})
+
 local initialized = false
 local function ensure_init()
   if initialized then return end
   initialized = true
-
-  vim.pack.add({
-    'https://github.com/mfussenegger/nvim-dap',
-    'https://github.com/rcarriga/nvim-dap-ui',
-    'https://github.com/nvim-neotest/nvim-nio',
-    'https://github.com/theHamsta/nvim-dap-virtual-text',
-    'https://github.com/jay-babu/mason-nvim-dap.nvim',
-    'https://github.com/leoluz/nvim-dap-go',
-    'https://github.com/mfussenegger/nvim-dap-python',
-  })
 
   local icons = require('config.icons')
   local pkg = require('util.pkg')
@@ -44,28 +44,6 @@ local function ensure_init()
   vscode.json_decode = function(str)
     str = str:gsub('//[^\n]*', ''):gsub('/%*.-%*/', '')
     return vim.json.decode(str)
-  end
-
-  -- C# / .NET
-  if not dap.adapters['netcoredbg'] then
-    dap.adapters['netcoredbg'] = {
-      type = 'executable',
-      command = vim.fn.exepath('netcoredbg'),
-      args = { '--interpreter=vscode' },
-    }
-  end
-  for _, lang in ipairs({ 'cs', 'fsharp', 'vb' }) do
-    if not dap.configurations[lang] then
-      dap.configurations[lang] = {
-        {
-          type = 'netcoredbg',
-          name = 'Launch file',
-          request = 'launch',
-          program = function() return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/', 'file') end,
-          cwd = '${workspaceFolder}',
-        },
-      }
-    end
   end
 
   -- Go
