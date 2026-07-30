@@ -109,10 +109,10 @@ vim.keymap.set('n', '<leader>wd', '<C-W>c', { desc = '[d]elete', remap = true })
 
 -- [[ Neovim ]]
 
-vim.keymap.set('n', '<leader>nl', '<cmd>PackStatus<cr>', { desc = '[l]ist plugins' })
-vim.keymap.set('n', '<leader>nu', '<cmd>PackUpdate<cr>', { desc = '[u]pdate plugins' })
-vim.keymap.set('n', '<leader>nr', '<cmd>PackRestore<cr>', { desc = '[r]estore plugins' })
-vim.keymap.set('n', '<leader>nh', '<cmd>PackHealth<cr>', { desc = '[h]ealth check' })
+vim.keymap.set('n', '<leader>nl', '<cmd>packupdate ++offline<cr>', { desc = '[l]ist plugins' })
+vim.keymap.set('n', '<leader>nu', '<cmd>packupdate<cr>', { desc = '[u]pdate plugins' })
+vim.keymap.set('n', '<leader>nr', '<cmd>packrestore ++lockfile<cr>', { desc = '[r]estore plugins' })
+vim.keymap.set('n', '<leader>nh', '<cmd>checkhealth vim.pack<cr>', { desc = '[h]ealth check' })
 
 -- [[ Terminal ]]
 
