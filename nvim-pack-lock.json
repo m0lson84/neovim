@@ -195,6 +195,10 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
+    "obsidian.nvim": {
+      "rev": "07f94ef04a417555ee56a5895ddeb740f2de0033",
+      "src": "https://github.com/obsidian-nvim/obsidian.nvim"
+    },
     "persistence.nvim": {
       "rev": "b20b2a7887bd39c1a356980b45e03250f3dce49c",
       "src": "https://github.com/folke/persistence.nvim"
