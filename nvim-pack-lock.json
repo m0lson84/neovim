@@ -195,10 +195,6 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
-    "opencode.nvim": {
-      "rev": "4576b372034495b8868e6cbe878e85c717998867",
-      "src": "https://github.com/nickjvandyke/opencode.nvim"
-    },
     "persistence.nvim": {
       "rev": "b20b2a7887bd39c1a356980b45e03250f3dce49c",
       "src": "https://github.com/folke/persistence.nvim"
@@ -212,7 +208,7 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "rustaceanvim": {
-      "rev": "2ff9fc883e80db1396656751e8b86972804aadbc",
+      "rev": "2a2a3e892e5812e3cddc05b067e1744803407d22",
       "src": "https://github.com/mrcjkb/rustaceanvim"
     },
     "snacks.nvim": {
