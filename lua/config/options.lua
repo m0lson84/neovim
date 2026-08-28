@@ -10,6 +10,7 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
+vim.g.clipboard = vim.env.REMOTE_CONTAINERS and 'osc52' or nil
 
 -- [[ Editor ]]
 
@@ -23,7 +24,7 @@ vim.o.formatoptions = 'jcroqlnt'
 vim.o.jumpoptions = 'view'
 vim.o.mouse = 'a'
 vim.o.sessionoptions = 'buffers,curdir,tabpages,winsize,help,globals,skiprtp,folds'
-vim.o.shell = (vim.fn.executable('fish') and 'fish') or vim.env.SHELL or 'sh'
+vim.o.shell = (vim.fn.executable('fish') == 1 and 'fish') or vim.env.SHELL or 'sh'
 vim.o.shiftround = true
 vim.o.shiftwidth = 2
 vim.o.smartindent = true
