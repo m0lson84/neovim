@@ -1,7 +1,7 @@
 {
   "plugins": {
     "SchemaStore.nvim": {
-      "rev": "12dd0de1f15d598db2cc0d075f4f0d13a3290d4d",
+      "rev": "ee3154ed8ea465a67ea1f22c3b95224b341a3af4",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "blink-copilot": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/jellydn/hurl.nvim"
     },
     "kulala.nvim": {
-      "rev": "dcad056448773ae5b54cadbfdbd188a599cfebd3",
+      "rev": "d30ea2abbc76afc687f96f2a693bf542b8185e31",
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "lazydev.nvim": {
