@@ -87,7 +87,6 @@ NVIM_APPNAME=m0lson84/neovim/ nvim
 - [folke/persistence.nvim](https://dotfyle.com/plugins/folke/persistence.nvim)
 - [gcballesteros/jupytext.nvim](https://dotfyle.com/plugins/GCBallesteros/jupytext.nvim)
 - [jellydn/hurl.nvim](https://dotfyle.com/plugins/jellydn/hurl.nvim)
-- [mistweaverco/kulala.nvim](https://dotfyle.com/plugins/mistweaverco/kulala.nvim)
 - [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
 - [Vigemus/iron.nvim](https://dotfyle.com/plugins/Vigemus/iron.nvim)
 
