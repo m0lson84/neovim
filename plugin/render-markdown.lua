@@ -7,7 +7,7 @@ vim.pack.add({
 })
 
 require('render-markdown').setup({
-  file_types = { 'markdown', 'norg', 'rmd', 'org', 'kulala_ui' },
+  file_types = { 'markdown', 'norg', 'rmd', 'org' },
   heading = { enabled = false },
   latex = { enabled = false },
   code = {
