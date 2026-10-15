@@ -1,11 +1,11 @@
 --[[
-tsc (https://github.com/microsoft/typescript-go)
+tsc (https://github.com/microsoft/typescript)
 --]]
 
 ---@type vim.lsp.Config
 return {
   settings = {
-    typescript = {
+    ['js/ts'] = {
       inlayHints = {
         enumMemberValues = { enabled = true },
         functionLikeReturnTypes = { enabled = false },

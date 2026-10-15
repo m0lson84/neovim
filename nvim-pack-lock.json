@@ -1,7 +1,7 @@
 {
   "plugins": {
     "SchemaStore.nvim": {
-      "rev": "9485dacfff2828f06c4678b059e382e49ec54aeb",
+      "rev": "7fca30f2890a6acf9d21d194876c6ac960d92070",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "blink-copilot": {
@@ -170,7 +170,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "ac062d0d01c019c0dbdb798968f3e5d8b35c3853",
+      "rev": "45a3a444b710511c39abca3b60bb6e23a21e3de5",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -192,7 +192,7 @@
       "version": "'main'"
     },
     "obsidian.nvim": {
-      "rev": "5887208eb7f70d984f1928b4c05d5ef7a212500c",
+      "rev": "e6e0e1ec16676461b31518817fcd6ea3d2558521",
       "src": "https://github.com/obsidian-nvim/obsidian.nvim"
     },
     "persistence.nvim": {
